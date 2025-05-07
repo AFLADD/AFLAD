@@ -1,492 +1,394 @@
-body{
+* {
+    box-sizing: border-box;
+}
+
+body {
     text-align: center;
-    background: radial-gradient(69.65% 61.69% at 12.5% 52.05%, rgba(41, 66, 112, 0.2) 0%, rgba(255, 255, 255, 0) 100%)
-    ,radial-gradient(42.07% 41.13% at 90% 48.85%, rgba(249, 70, 3, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%)
-    ,radial-gradient(59.37% 52.58% at 29.76% 1.36%, rgba(249, 70, 3, 0.246) 0%, rgba(255, 255, 255, 0.6) 33.07%);
-  
+    background: radial-gradient(69.65% 61.69% at 12.5% 52.05%, rgba(41, 66, 112, 0.2) 0%, rgba(255, 255, 255, 0) 100%),
+                radial-gradient(42.07% 41.13% at 90% 48.85%, rgba(249, 70, 3, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%),
+                radial-gradient(59.37% 52.58% at 29.76% 1.36%, rgba(249, 70, 3, 0.246) 0%, rgba(255, 255, 255, 0.6) 33.07%);
     font-family: 'Epilogue', sans-serif;
+    margin: auto;
+    overflow-x: hidden;
 }
 
-a{
+a {
     text-decoration: none;
-
-color: #3A3A3A;
+    color: #3A3A3A;
 }
 
-nav{
-    /* border: 1px solid red; */
+nav {
     justify-content: space-between;
-    width:100% ;
-    
+    width: 100%;
+    max-width: 100%;
     display: flex;
     align-items: center;
     font-family: 'Epilogue', sans-serif;
+    padding: 10px 5%;
 }
-nav .logo{
+
+nav .logo {
     width: 8%;
+    min-width: 60px;
 }
-nav .logo img{
-    width: 70%;
-    height: 70%;
+
+nav .logo img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
 }
-nav .button .white{
+
+nav .button .white {
     background-color: #ffffff;
     color: #294270;
 }
-nav .button  .blue a{
+
+nav .button .blue a {
     color: #ffffff;
     background-color: #294270;
 }
-.navline{
+
+.navline {
     border: 1px solid #294270;
     width: 100%;
+    max-width: 100%;
+}
 
-}
-nav .button{
+nav .button {
     text-align: right;
-    
-    
     width: 20%;
-    /* border: 1px solid red; */
+    min-width: 120px;
 }
-nav button{
-    
+
+nav button {
     padding: 10px;
     color: white;
-    background-color:#294270;
+    background-color: #294270;
     border-radius: 10.3579px;
     border: none;
     cursor: pointer;
+    width: 100%;
+    max-width: 120px;
 }
 
-nav .links{
+nav .links {
     display: flex;
     align-items: center;
     width: 70%;
+    max-width: 100%;
 }
-nav ul{
+
+nav ul {
     list-style: none;
     display: flex;
-    width: 70%;
+    width: 100%;
     justify-content: space-around;
     cursor: pointer;
-   
-    
-    /* border: 1px solid red; */
+    margin: 0;
+    padding: 0;
 }
-button{
-    
+
+button {
     padding: 10px;
     color: white;
-    background-color:#294270;
+    background-color: #294270;
     border-radius: 10.3579px;
     border: none;
     cursor: pointer;
 }
-.nocolor{
+
+.nocolor {
     padding-top: 20px;
     padding-left: 10px;
     padding-right: 10px;
-    background:#FFFFFF;
+    background: #FFFFFF;
+    width: 100%;
+    max-width: 100%;
 }
 
-.aboutcontainer{
+.aboutcontainer {
     width: 90%;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 10px;
-    
 }
 
-.about{
+.about {
     width: 100%;
     margin: 0 auto;
 }
-.about .imagecontainer{
+
+.about .imagecontainer {
     width: 80%;
     margin: 0 auto;
-    /* border: 1px solid red; */
 }
-.about .imagecontainer img{
+
+.about .imagecontainer img {
     width: 100%;
-    height: 100%;
+    height: auto;
+    max-width: 100%;
 }
-.aboutimage{
-   
-  
+
+.aboutimage {
     justify-content: space-between;
-  
     width: 90%;
+    max-width: 1200px;
     margin: 0 auto;
-    
     margin-top: 100px;
     display: flex;
     align-items: center;
 }
- .aboutimage p{
+
+.aboutimage p {
     width: 45%;
     font-family: 'Epilogue', sans-serif;
-font-style: normal;
-font-weight: 400;
-font-size: 25px;
-line-height: 120%;
-
-
-text-align: justify;
-color: #3A3A3A;
-
+    font-style: Grok normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 120%;
+    text-align: justify;
+    color: #3A3A3A;
 }
-.aboutimage .imagecontainer{
+
+.aboutimage .imagecontainer {
     width: 50%;
- }
+}
 
-.aboutimage .imagecontainer img{
+.aboutimage .imagecontainer img {
     width: 100%;
-    height: 100%;
+    height: auto;
+    max-width: 100%;
 }
 
- p{
+p {
     font-family: 'Epilogue', sans-serif;
-font-style: normal;
-font-weight: 600;
-font-size: 25px;
-line-height: 120%;
-/* or 48px */
-
-text-align: center;
-
-/* Foundation /Grey/Normal */
-
-color: #3A3A3A;
-
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 120%;
+    text-align: center;
+    color: #3A3A3A;
 }
-h1{
+
+h1 {
     font-family: 'Epilogue', sans-serif;
-font-style: normal;
-font-weight: 700;
-font-size: 40px;
-line-height: 120%;
-/* identical to box height, or 96px */
-
-text-align: center;
-
-/* Foundation /Blue/Normal */
-
-color: #294270;
-
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 120%;
+    text-align: center;
+    color: #294270;
 }
 
- .numbers{
-    margin-top:40px;
+.numbers {
+    margin-top: 40px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     background: #FFFFFF;
-border: 1px solid #BDC4D3;
-padding: 16px;
-
-box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
-border-radius: 30px;
+    border: 1px solid #BDC4D3;
+    padding: 16px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    width: 90%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
-.numbers h3{
-    font-family: 'Epilogue', sans-serif;
-font-style: normal;
-font-weight: 400;
-font-size: 30px;
-line-height: 120%;
 
-
-text-align: center;
-
-
-color: #3A3A3A;
-}
-.mission{
-    display: grid;
-   
-    gap: 30px;
-    grid-template-columns: 1fr 1fr 1fr;
-}
- .mission .values p{
+.numbers h3 {
     font-family: 'Epilogue', sans-serif;
     font-style: normal;
     font-weight: 400;
-    /* font-size: 20px; */
+    font-size: 30px;
     line-height: 120%;
-  
-    text-align:left;
-    
-    /* Foundation /Grey/Normal */
-    
+    text-align: center;
     color: #3A3A3A;
-    
-}
-.boardimage{
-    display: grid;
-    /* border: 1px solid red; */
-    grid-template-columns: 1fr 1fr 1fr ;
-    gap: 20px;
-    
-}
-.boardimage .boardpics{
-    /* border: 1px solid red; */
-    width: 100%;
-    
 }
 
-.boardimage .aboutboard img{
-    width: 300px;
-    height:300px;
-    object-fit: cover;
-   
+.mission {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
-.newsletter{
+
+.mission .values p {
+    font-family: 'Epilogue', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    text-align: left;
+    color: #3A3A3A;
+}
+
+.boardimage {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.boardimage .boardpics {
+    width: 100%;
+}
+
+.boardimage .aboutboard img {
+    width: 100%;
+    max-width: 300px;
+    height: 300px;
+    object-fit: cover;
+    margin: 0 auto;
+    display: block;
+}
+
+.newsletter {
     background: #FFFFFF;
     margin-top: 5%;
     padding: 16px;
-    
-
-
-border: 1px solid #BDC4D3;
-
-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
-border-radius: 31.875px;
+    border: 1px solid #BDC4D3;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 31.875px;
+    width: 90%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
-.newsletter .text{
-    /* border: 1px solid red; */
+
+.newsletter .text {
     width: 49%;
-    text-align: justify ;
-   
+    text-align: justify;
 }
-.newsletter p{
+
+.newsletter p {
     font-family: 'Epilogue', sans-serif;
-font-style: normal;
-font-weight: 200;
-font-size: 20px;
-line-height: 120%;
-text-align: justify;
-
-
-
-color: #C2C2C2;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 20px;
+    line-height: 120%;
+    text-align: justify;
+    color: #C2C2C2;
 }
-.newsletter .text h2{
+
+.newsletter .text h2 {
     font-family: 'Epilogue', sans-serif;
-font-style: normal;
-font-weight: 700;
-font-size: 32px;
-line-height: 120%;
-
-color: #3A3A3A;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 120%;
+    color: #3A3A3A;
 }
 
-.newsletter form{
+.newsletter form {
     text-align: right;
 }
-.newsletter input{
+
+.newsletter input {
     padding: 10px;
     border-radius: 10px;
     outline: none;
     border: 1px solid #294270;
+    max-width: 100%;
 }
 
-@media screen and (max-width:1000px) {
-
-    .boardimage{
-        display: grid;
-        grid-template-columns:  1fr 1fr;
-        gap: 20px;
-    }
-}
-@media screen and (max-width:900px) {
-
-    .mission{
-        width: 80%;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 10px;
-    }
-     .numbers{
-        margin-top:40px;
-        display: grid;
-        grid-template-columns:1fr 1fr;
-        background: #FFFFFF;
-    border: 1px solid #BDC4D3;
-    
-    
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 30px;
-    }
-    .aboutimage{
-  
-      
-      
-        width: 100%;
-        margin: 0 auto;
-        
-        margin-top: 100px;
-        flex-direction: column;
-      
-    }
-    .aboutimage p{
-        width: 100%;
-        font-family: 'Epilogue', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 25px;
-    line-height: 120%;
-    
-    
-    text-align: center;
-    color: #3A3A3A;
-    
-    }
-    .aboutimage .imagecontainer{
-        width: 50%;
-    
-    }
-  
-    
-}
-@media screen and (max-width:700px) {
-    .boardimage{
-        display: grid;
-        grid-template-columns:  1fr ;
-        gap: 20px;
-    }
-    
-
-
-
-}
-@media screen and (max-width:600px) {
-    .Footer .top{
-        display: flex;
-        flex-direction: column;
-    }
-}
-
-
-.Footer{
-   
-    width: 100%; 
+.Footer {
+    width: 100%;
     background: #E6EDEF;
     margin-bottom: 10px;
     margin-top: 100px;
-  
-    
-   
-    
-  
-  
-} 
+}
 
-.Footer .logoform{
-/* border: 1px solid red; */
+.Footer .logoform {
     width: 30%;
 }
-.Footer .logoform  .socials{
+
+.Footer .logoform .socials {
     padding: 10px;
     display: flex;
     align-items: center;
-    width: 30%;
+    width: 100%;
     justify-content: space-between;
     margin-bottom: 30px;
-
-
-    
 }
 
-.Footer .logoform  .socials img{
+.Footer .logoform .socials img {
     width: 20%;
- 
-    /* border: 1px solid red   ; */
+    max-width: 40px;
 }
-.Footer .logoform input{
+
+.Footer .logoform input {
     padding: 10px;
     background: #FEFEFE;
-    border-radius: 30px;    
+    border-radius: 30px;
     border: none;
-    width: 80%;
+    width: 100%;
+    max-width: 80%;
 }
 
-
-.top{
+.top {
     display: flex;
-     
-    width:100%;
-
+    width: 100%;
     padding: 10px;
     text-align: justify;
     align-items: center;
-    
-    
     justify-content: space-between;
 }
 
-.Footer .under{
-   width: 100%;
-   /* border: 1px solid red; */
-
-}
-.Footer .top h5{
+.Footer .under {
     width: 100%;
-    /* border: 1px solid red; */
-    /* font-size: 150%;
-    font-weight: 800; */
+}
+
+.Footer .top h5 {
     font-family: 'Epilogue', sans-serif;
     font-style: normal;
     font-weight: 800;
     font-size: 20px;
     line-height: 120%;
-    
-    
     text-align: justify;
-    
     color: #294270;
 }
-.Footer .top h6{
-    /* width: 100%; */
-    /* border: 1px solid red; */
-    /* font-size: 100%;
-    font-weight: 800;
-  */
-  font-family: 'Epilogue', sans-serif;
-  font-style: normal;
-  font-weight: 200;
-  font-size: 16px;
-  line-height: 120%;
-  text-align: justify;
-}   
 
-.Footer .under img{
-    width: 100%;
-
-}
-
-.Footer .container{
-   /* border: 1px solid red; */
-   margin: 0 auto;
-    padding: 10px;  
+.Footer .top h6 {
+    font-family: 'Epilogue', sans-serif;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 16px;
+    line-height: 120%;
     text-align: justify;
-  width: 90%;
+}
 
+.Footer .under img {
+    width: 100%;
+    max-width: 100%;
 }
-.Footer .Company{
+
+.Footer .container {
+    margin: 0 auto;
+    padding: 10px;
+    text-align: justify;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.Footer .Company {
     width: 25%;
-    /* border: 1px solid red; */
 }
-.Footer .Products{
+
+.Footer .Products {
     width: 25%;
 }
-.Footer .footerbutton{
+
+.Footer .footerbutton {
     display: flex;
     flex-direction: column-reverse;
-    /* border: 1px solid red; */
     width: 15%;
-    
     padding: 5px;
 }
-.Footer .footerbutton button{
+
+.Footer .footerbutton button {
     width: 100%;
     padding: 10px;
     color: white;
@@ -495,11 +397,11 @@ color: #3A3A3A;
     margin-bottom: 10%;
     border-radius: 10px;
     cursor: pointer;
-
 }
-.Footer>.footerbutton>button>.white{
+
+.Footer>.footerbutton>button>.white {
     padding: 10px;
-    color:  #294270;
+    color: #294270;
     background-color: white;
     border: none;
     margin-bottom: 10%;
@@ -507,6 +409,81 @@ color: #3A3A3A;
     cursor: pointer;
 }
 
+@media screen and (max-width: 1000px) {
+    .boardimage {
+        grid-template-columns: 1fr 1fr;
+    }
+}
 
-    
-  
+@media screen and (max-width: 900px) {
+    .mission {
+        width: 80%;
+        margin: 0 auto;
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .numbers {
+        margin-top: 40px;
+        grid-template-columns: 1fr 1fr;
+        width: 80%;
+    }
+
+    .aboutimage {
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 100px;
+        flex-direction: column;
+    }
+
+    .aboutimage p {
+        width: 100%;
+        text-align: center;
+    }
+
+    .aboutimage .imagecontainer {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .boardimage {
+        grid-template-columns: 1fr;
+    }
+
+    .boardimage .aboutboard img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .Footer .top {
+        flex-direction: column;
+    }
+
+    .Footer .logoform {
+        width: 100%;
+    }
+
+    .Footer .Company,
+    .Footer .Products {
+        width: 100%;
+    }
+
+    .Footer .footerbutton {
+        width: 100%;
+    }
+
+    nav .logo {
+        width: 20%;
+    }
+
+    nav .button {
+        width: 50%;
+    }
+
+    nav .links {
+        width: 100%;
+    }
+}
