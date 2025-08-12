@@ -1,682 +1,683 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Forum</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        * {
-            box-sizing: border-box;
-        }
+      * {
+        box-sizing: border-box;
+      }
 
-        body {
-            text-align: center;
-            background: radial-gradient(69.65% 61.69% at 12.5% 52.05%, rgba(41, 66, 112, 0.2) 0%, rgba(255, 255, 255, 0) 100%),
-                        radial-gradient(42.07% 41.13% at 90% 48.85%, rgba(249, 70, 3, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%),
-                        radial-gradient(59.37% 52.58% at 29.76% 1.36%, rgba(249, 70, 3, 0.246) 0%, rgba(255, 255, 255, 0.6) 33.07%);
-            font-family: 'Epilogue', sans-serif;
-            margin: 0;
-            width: 100%;
-            overflow-x: hidden;
-        }
+      body {
+        text-align: center;
+        background: white;
+        font-family: "Epilogue", sans-serif;
+        margin: 0;
+        width: 100%;
+        overflow-x: hidden;
+      }
 
-        a {
-            text-decoration: none;
-            color: #3A3A3A;
-        }
+      a {
+        text-decoration: none;
+        color: #3a3a3a;
+      }
 
+      nav {
+        justify-content: space-between;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        font-family: "Epilogue", sans-serif;
+        padding: 10px 5%;
+        position: relative;
+      }
+
+      nav .logo {
+        width: 8%;
+        min-width: 50px;
+      }
+
+      nav .logo img {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+      }
+
+      nav .button .white {
+        background-color: #ffffff;
+        color: #294270;
+      }
+
+      nav .button .blue a {
+        color: #ffffff;
+        background-color: #294270;
+      }
+
+      .navline {
+        border: 1px solid #294270;
+        width: 100%;
+      }
+
+      nav .button {
+        text-align: right;
+        width: 20%;
+        min-width: 120px;
+      }
+
+      nav button {
+        padding: 10px;
+        color: white;
+        background-color: #294270;
+        border-radius: 10.3579px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        max-width: 120px;
+      }
+
+      nav .links {
+        display: flex;
+        align-items: center;
+        width: 70%;
+        max-width: 100%;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        cursor: pointer;
+        margin: 0;
+        padding: 0;
+      }
+
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        padding: 10px;
+      }
+
+      .menu-toggle span {
+        width: 25px;
+        height: 3px;
+        background-color: #294270;
+        margin: 2px 0;
+        transition: all 0.3s ease;
+      }
+
+      .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+      }
+
+      .menu-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 998;
+      }
+
+      .menu-overlay.active {
+        display: block;
+      }
+
+      .heading {
+        padding: 20px 0;
+      }
+
+      .heading h2 {
+        font-family: "Epilogue", sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 120%;
+        text-align: center;
+        color: #294270;
+        margin: 0;
+      }
+
+      .forumcontainer {
+        display: flex;
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        gap: 20px;
+      }
+
+      .popular {
+        width: 30%;
+        background: #ffffff;
+        border: 1px solid #bdc4d3;
+        border-radius: 20px;
+        padding: 20px;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .popular .content {
+        margin-bottom: 20px;
+      }
+
+      .popular h3 {
+        font-family: "Epilogue", sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 120%;
+        color: #294270;
+        text-align: left;
+      }
+
+      .tags {
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+      }
+
+      .tagimage img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        margin-right: 10px;
+      }
+
+      .tagstext p {
+        font-family: "Epilogue", sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 120%;
+        color: #3a3a3a;
+        margin: 0;
+      }
+
+      .tagstext p small {
+        font-size: 14px;
+        color: #c2c2c2;
+      }
+
+      .groups {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .search {
+        display: flex;
+        gap: 10px;
+        justify-content: flex-end;
+      }
+
+      .search input {
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #294270;
+        width: 60%;
+        max-width: 300px;
+      }
+
+      .search select {
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #294270;
+        background: #ffffff;
+      }
+
+      .container {
+        background: #ffffff;
+        border: 1px solid #bdc4d3;
+        border-radius: 20px;
+        padding: 20px;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .groupimagecontainer {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 15px;
+      }
+
+      .groupimage img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+
+      .groupimagetext h4 {
+        font-family: "Epilogue", sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 120%;
+        color: #3a3a3a;
+        margin: 0;
+      }
+
+      .groupimagetext p {
+        font-family: "Epilogue", sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 120%;
+        color: #c2c2c2;
+        margin: 5px 0 0;
+      }
+
+      .grouptext h3 {
+        font-family: "Epilogue", sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 120%;
+        color: #294270;
+        text-align: left;
+        margin: 0 0 10px;
+      }
+
+      .grouptext h4 {
+        font-family: "Epilogue", sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 120%;
+        color: #3a3a3a;
+        text-align: left;
+        margin: 0 0 15px;
+      }
+
+      .grouptext .image {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+
+      .grouptext .image div {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .grouptext .image img {
+        width: 24px;
+        height: 24px;
+      }
+
+      .grouptext .image p small {
+        font-family: "Epilogue", sans-serif;
+        font-size: 14px;
+        color: #3a3a3a;
+      }
+
+      .grouptext .bigimage img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        margin-top: 15px;
+      }
+
+      .buttoncontainer {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .buttoncontainer button {
+        padding: 10px 15px;
+        background-color: #294270;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-family: "Epilogue", sans-serif;
+        font-size: 16px;
+      }
+
+      .Footer {
+        width: 100%;
+        background: #e6edef;
+        margin-bottom: 10px;
+        margin-top: 100px;
+      }
+
+      .Footer .logoform {
+        width: 30%;
+      }
+
+      .Footer .logoform img {
+        width: 100%;
+        max-width: 100px;
+        height: auto;
+      }
+
+      .Footer .logoform input {
+        padding: 10px;
+        background: #fefefe;
+        border-radius: 30px;
+        border: none;
+        width: 80%;
+        max-width: 200px;
+      }
+
+      .Footer .top {
+        display: flex;
+        width: 100%;
+        padding: 10px;
+        text-align: justify;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .Footer .under {
+        width: 100%;
+      }
+
+      .Footer .under img {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .Footer .container {
+        margin: 0 auto;
+        padding: 10px;
+        text-align: justify;
+        width: 90%;
+        max-width: 1200px;
+      }
+
+      .Footer .Company,
+      .Footer .Products {
+        width: 25%;
+      }
+
+      .Footer .footerbutton {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 15%;
+        padding: 5px;
+      }
+
+      .Footer .footerbutton button {
+        width: 100%;
+        padding: 10px;
+        color: white;
+        background-color: #294270;
+        border: none;
+        margin-bottom: 10%;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+
+      .Footer .footerbutton .white {
+        background-color: #ffffff;
+        color: #294270;
+      }
+
+      .Footer .top h5 {
+        font-family: "Epilogue", sans-serif;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 20px;
+        line-height: 120%;
+        text-align: justify;
+        color: #294270;
+      }
+
+      .Footer .top h6 {
+        font-family: "Epilogue", sans-serif;
+        font-style: normal;
+        font-weight: 200;
+        font-size: 16px;
+        line-height: 120%;
+        text-align: justify;
+      }
+
+      @media screen and (max-width: 768px) {
         nav {
-            justify-content: space-between;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            font-family: 'Epilogue', sans-serif;
-            padding: 10px 5%;
-            position: relative;
-        }
-
-        nav .logo {
-            width: 8%;
-            min-width: 50px;
-        }
-
-        nav .logo img {
-            width: 100%;
-            height: auto;
-            max-width: 100%;
-        }
-
-        nav .button .white {
-            background-color: #ffffff;
-            color: #294270;
-        }
-
-        nav .button .blue a {
-            color: #ffffff;
-            background-color: #294270;
-        }
-
-        .navline {
-            border: 1px solid #294270;
-            width: 100%;
-        }
-
-        nav .button {
-            text-align: right;
-            width: 20%;
-            min-width: 120px;
-        }
-
-        nav button {
-            padding: 10px;
-            color: white;
-            background-color: #294270;
-            border-radius: 10.3579px;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-            max-width: 120px;
-        }
-
-        nav .links {
-            display: flex;
-            align-items: center;
-            width: 70%;
-            max-width: 100%;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            width: 100%;
-            justify-content: space-around;
-            cursor: pointer;
-            margin: 0;
-            padding: 0;
+          flex-wrap: wrap;
         }
 
         .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            padding: 10px;
+          display: flex;
+          z-index: 999;
         }
 
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background-color: #294270;
-            margin: 2px 0;
-            transition: all 0.3s ease;
+        nav .links {
+          display: none;
+          width: 100%;
+          background: #fff;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          padding: 20px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          z-index: 999;
         }
 
-        .menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
+        nav .links.active {
+          display: block;
         }
 
-        .menu-toggle.active span:nth-child(2) {
-            opacity: 0;
+        nav ul {
+          flex-direction: column;
+          width: 100%;
         }
 
-        .menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
+        nav ul li {
+          margin: 10px 0;
+          text-align: center;
         }
 
-        .menu-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 998;
+        nav .button {
+          width: 100%;
+          text-align: center;
+          margin-top: 10px;
         }
 
-        .menu-overlay.active {
-            display: block;
+        nav .button button {
+          width: 45%;
+          margin: 5px;
         }
 
-        .heading {
-            padding: 20px 0;
-        }
-
-        .heading h2 {
-            font-family: 'Epilogue', sans-serif;
-            font-style: normal;
-            font-weight: 700;
-            font-size: 40px;
-            line-height: 120%;
-            text-align: center;
-            color: #294270;
-            margin: 0;
+        nav .logo {
+          width: 20%;
         }
 
         .forumcontainer {
-            display: flex;
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            gap: 20px;
+          flex-direction: column;
+          width: 95%;
         }
 
         .popular {
-            width: 30%;
-            background: #FFFFFF;
-            border: 1px solid #BDC4D3;
-            border-radius: 20px;
-            padding: 20px;
-            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .popular .content {
-            margin-bottom: 20px;
-        }
-
-        .popular h3 {
-            font-family: 'Epilogue', sans-serif;
-            font-style: normal;
-            font-weight: 700;
-            font-size: 24px;
-            line-height: 120%;
-            color: #294270;
-            text-align: left;
-        }
-
-        .tags {
-            display: flex;
-            align-items: center;
-            margin: 10px 0;
-        }
-
-        .tagimage img {
-            width: 50px;
-            height: 50px;
-            object-fit: cover;
-            margin-right: 10px;
-        }
-
-        .tagstext p {
-            font-family: 'Epilogue', sans-serif;
-            font-style: normal;
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 120%;
-            color: #3A3A3A;
-            margin: 0;
-        }
-
-        .tagstext p small {
-            font-size: 14px;
-            color: #C2C2C2;
+          width: 100%;
         }
 
         .groups {
-            width: 70%;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+          width: 100%;
         }
 
         .search {
-            display: flex;
-            gap: 10px;
-            justify-content: flex-end;
+          flex-direction: column;
+          align-items: center;
         }
 
-        .search input {
-            padding: 10px;
-            border-radius: 10px;
-            border: 1px solid #294270;
-            width: 60%;
-            max-width: 300px;
-        }
-
+        .search input,
         .search select {
-            padding: 10px;
-            border-radius: 10px;
-            border: 1px solid #294270;
-            background: #FFFFFF;
+          width: 100%;
+          max-width: 100%;
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        nav .logo {
+          width: 25%;
         }
 
-        .container {
-            background: #FFFFFF;
-            border: 1px solid #BDC4D3;
-            border-radius: 20px;
-            padding: 20px;
-            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+        nav .button {
+          width: 50%;
+        }
+
+        nav .links {
+          width: 100%;
+        }
+
+        .heading h2 {
+          font-size: 32px;
+        }
+
+        .forumcontainer {
+          width: 95%;
+          padding: 10px;
+        }
+
+        .popular .content {
+          text-align: center;
+        }
+
+        .tags {
+          justify-content: center;
         }
 
         .groupimagecontainer {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .groupimage img {
-            width: 50px;
-            height: 50px;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-
-        .groupimagetext h4 {
-            font-family: 'Epilogue', sans-serif;
-            font-style: normal;
-            font-weight: 600;
-            font-size: 18px;
-            line-height: 120%;
-            color: #3A3A3A;
-            margin: 0;
-        }
-
-        .groupimagetext p {
-            font-family: 'Epilogue', sans-serif;
-            font-style: normal;
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 120%;
-            color: #C2C2C2;
-            margin: 5px 0 0;
+          flex-direction: column;
+          text-align: center;
         }
 
         .grouptext h3 {
-            font-family: 'Epilogue', sans-serif;
-            font-style: normal;
-            font-weight: 700;
-            font-size: 20px;
-            line-height: 120%;
-            color: #294270;
-            text-align: left;
-            margin: 0 0 10px;
+          font-size: 18px;
         }
 
         .grouptext h4 {
-            font-family: 'Epilogue', sans-serif;
-            font-style: normal;
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 120%;
-            color: #3A3A3A;
-            text-align: left;
-            margin: 0 0 15px;
-        }
-
-        .grouptext .image {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-
-        .grouptext .image div {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .grouptext .image img {
-            width: 24px;
-            height: 24px;
-        }
-
-        .grouptext .image p small {
-            font-family: 'Epilogue', sans-serif;
-            font-size: 14px;
-            color: #3A3A3A;
-        }
-
-        .grouptext .bigimage img {
-            width: 100%;
-            max-width: 100%;
-            height: auto;
-            margin-top: 15px;
-        }
-
-        .buttoncontainer {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .buttoncontainer button {
-            padding: 10px 15px;
-            background-color: #294270;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            font-family: 'Epilogue', sans-serif;
-            font-size: 16px;
-        }
-
-        .Footer {
-            width: 100%;
-            background: #E6EDEF;
-            margin-bottom: 10px;
-            margin-top: 100px;
-        }
-
-        .Footer .logoform {
-            width: 30%;
-        }
-
-        .Footer .logoform img {
-            width: 100%;
-            max-width: 100px;
-            height: auto;
-        }
-
-        .Footer .logoform input {
-            padding: 10px;
-            background: #FEFEFE;
-            border-radius: 30px;
-            border: none;
-            width: 80%;
-            max-width: 200px;
+          font-size: 14px;
         }
 
         .Footer .top {
-            display: flex;
-            width: 100%;
-            padding: 10px;
-            text-align: justify;
-            align-items: center;
-            justify-content: space-between;
+          flex-direction: column;
         }
 
-        .Footer .under {
-            width: 100%;
-        }
-
-        .Footer .under img {
-            width: 100%;
-            max-width: 100%;
-        }
-
-        .Footer .container {
-            margin: 0 auto;
-            padding: 10px;
-            text-align: justify;
-            width: 90%;
-            max-width: 1200px;
-        }
-
+        .Footer .logoform,
         .Footer .Company,
-        .Footer .Products {
-            width: 25%;
-        }
-
+        .Footer .Products,
         .Footer .footerbutton {
-            display: flex;
-            flex-direction: column-reverse;
-            width: 15%;
-            padding: 5px;
+          width: 100%;
+          margin-bottom: 20px;
         }
 
         .Footer .footerbutton button {
-            width: 100%;
-            padding: 10px;
-            color: white;
-            background-color: #294270;
-            border: none;
-            margin-bottom: 10%;
-            border-radius: 10px;
-            cursor: pointer;
+          margin-bottom: 5%;
         }
-
-        .Footer .footerbutton .white {
-            background-color: #ffffff;
-            color: #294270;
-        }
-
-        .Footer .top h5 {
-            font-family: 'Epilogue', sans-serif;
-            font-style: normal;
-            font-weight: 800;
-            font-size: 20px;
-            line-height: 120%;
-            text-align: justify;
-            color: #294270;
-        }
-
-        .Footer .top h6 {
-            font-family: 'Epilogue', sans-serif;
-            font-style: normal;
-            font-weight: 200;
-            font-size: 16px;
-            line-height: 120%;
-            text-align: justify;
-        }
-
-        @media screen and (max-width: 768px) {
-            nav {
-                flex-wrap: wrap;
-            }
-
-            .menu-toggle {
-                display: flex;
-                z-index: 999;
-            }
-
-            nav .links {
-                display: none;
-                width: 100%;
-                background: #fff;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                padding: 20px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                z-index: 999;
-            }
-
-            nav .links.active {
-                display: block;
-            }
-
-            nav ul {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            nav ul li {
-                margin: 10px 0;
-                text-align: center;
-            }
-
-            nav .button {
-                width: 100%;
-                text-align: center;
-                margin-top: 10px;
-            }
-
-            nav .button button {
-                width: 45%;
-                margin: 5px;
-            }
-
-            nav .logo {
-                width: 20%;
-            }
-
-            .forumcontainer {
-                flex-direction: column;
-                width: 95%;
-            }
-
-            .popular {
-                width: 100%;
-            }
-
-            .groups {
-                width: 100%;
-            }
-
-            .search {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .search input,
-            .search select {
-                width: 100%;
-                max-width: 100%;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            nav .logo {
-                width: 25%;
-            }
-
-            nav .button {
-                width: 50%;
-            }
-
-            nav .links {
-                width: 100%;
-            }
-
-            .heading h2 {
-                font-size: 32px;
-            }
-
-            .forumcontainer {
-                width: 95%;
-                padding: 10px;
-            }
-
-            .popular .content {
-                text-align: center;
-            }
-
-            .tags {
-                justify-content: center;
-            }
-
-            .groupimagecontainer {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .grouptext h3 {
-                font-size: 18px;
-            }
-
-            .grouptext h4 {
-                font-size: 14px;
-            }
-
-            .Footer .top {
-                flex-direction: column;
-            }
-
-            .Footer .logoform,
-            .Footer .Company,
-            .Footer .Products,
-            .Footer .footerbutton {
-                width: 100%;
-                margin-bottom: 20px;
-            }
-
-            .Footer .footerbutton button {
-                margin-bottom: 5%;
-            }
-        }
+      }
     </style>
-</head>
-<body>
-    <nav> 
-        <div class="logo">
-            <a href="./home.html">
-                <img src="./aflad.png" alt="AFLAD Logo">
-            </a>
-        </div>  
-        <div class="menu-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <a href="./home.html">
+          <img src="./aflad.png" alt="AFLAD Logo" />
+        </a>
+      </div>
+      <div class="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="links">
+        <ul>
+          <li><a href="./about.html">About Us</a></li>
+          <li><a href="./forum.html">Forum</a></li>
+          <li><a href="./publication.html">Insights</a></li>
+          <li><a href="./events.html">Events</a></li>
+          <li><a href="./trainings.html">Trainings</a></li>
+          <li><a href="./contact.html">Contact Us</a></li>
+        </ul>
+        <div class="button">
+          <button class="white"><a href="./signin.html">Sign in</a></button>
+          <button class="blue"><a href="./signup.html">Sign up</a></button>
         </div>
-        <div class="links">
-            <ul>
-                <li><a href="./about.html">About Us</a></li>
-                <li><a href="./forum.html">Forum</a></li>
-                <li><a href="./publication.html">Insights</a></li>
-                <li><a href="./events.html">Events</a></li>
-                <li><a href="./trainings.html">Trainings</a></li>
-                <li><a href="./contact.html">Contact Us</a></li>
-            </ul>
-            <div class="button">
-                <button class="white"><a href="./signin.html">Sign in</a></button>
-                <button class="blue"><a href="./signup.html">Sign up</a></button>
-            </div>
-        </div>
+      </div>
     </nav>
     <div class="menu-overlay"></div>
     <div class="navline"></div>
 
     <div class="heading">
-        <h2>Discussion</h2>
+      <h2>Discussion</h2>
     </div>
 
     <div class="forumcontainer">
-        <div class="popular">
-            <div class="content">
-                <h3>Popular Tags</h3>
-                <div class="tags">
-                    <div class="tagimage">
-                        <img src="./Frame 255 (4).png" alt="">
-                    </div>
-                    <div class="tagstext">
-                        <p>#Popular</p>
-                        <p><small>13000 posted. Trending</small></p>
-                    </div>
-                </div>
-                <div class="tags">
-                    <div class="tagimage">
-                        <img src="./Frame 25.png" alt="">
-                    </div>
-                    <div class="tagstext">
-                        <p>#Facilitators</p>
-                        <p><small>13000 posted. Trending</small></p>
-                    </div>
-                </div>
-                <div class="tags">
-                    <div class="tagimage">
-                        <img src="./Fra.png" alt="">
-                    </div>
-                    <div class="tagstext">
-                        <p>#Facilitating</p>
-                        <p><small>13000 posted. Trending</small></p>
-                    </div>
-                </div>
-                <div class="tags">
-                    <div class="tagimage">
-                        <img src="./gfu.png" alt="">
-                    </div>
-                    <div class="tagstext">
-                        <p>#Leadership</p>
-                        <p><small>13000 posted. Trending</small></p>
-                    </div>
-                </div>
-                <div class="tags">
-                    <div class="tagimage">
-                        <img src="./gfu.png" alt="">
-                    </div>
-                    <div class="tagstext">
-                        <p>#Leadership Development</p>
-                        <p><small>13000 posted. Trending</small></p>
-                    </div>
-                </div>
+      <div class="popular">
+        <div class="content">
+          <h3>Popular Tags</h3>
+          <div class="tags">
+            <div class="tagimage">
+              <img src="./Frame 255 (4).png" alt="" />
             </div>
-            <!-- <div class="content">
+            <div class="tagstext">
+              <p>#Popular</p>
+              <p><small>13000 posted. Trending</small></p>
+            </div>
+          </div>
+          <div class="tags">
+            <div class="tagimage">
+              <img src="./Frame 25.png" alt="" />
+            </div>
+            <div class="tagstext">
+              <p>#Facilitators</p>
+              <p><small>13000 posted. Trending</small></p>
+            </div>
+          </div>
+          <div class="tags">
+            <div class="tagimage">
+              <img src="./Fra.png" alt="" />
+            </div>
+            <div class="tagstext">
+              <p>#Facilitating</p>
+              <p><small>13000 posted. Trending</small></p>
+            </div>
+          </div>
+          <div class="tags">
+            <div class="tagimage">
+              <img src="./gfu.png" alt="" />
+            </div>
+            <div class="tagstext">
+              <p>#Leadership</p>
+              <p><small>13000 posted. Trending</small></p>
+            </div>
+          </div>
+          <div class="tags">
+            <div class="tagimage">
+              <img src="./gfu.png" alt="" />
+            </div>
+            <div class="tagstext">
+              <p>#Leadership Development</p>
+              <p><small>13000 posted. Trending</small></p>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="content">
                 <h3>Popular Tags</h3>
                 <div class="tags">
                     <div class="tagimage">
@@ -754,291 +755,338 @@
                     </div>
                 </div>
             </div> -->
+      </div>
+
+      <div class="groups">
+        <div class="search">
+          <input type="text" placeholder="Search" id="" />
+          <select>
+            <option value="">Sectors</option>
+          </select>
         </div>
 
-        <div class="groups">
-            <div class="search">
-                <input type="text" placeholder="Search" id="">
-                <select>
-                    <option value="">Sectors</option>
-                </select>
+        <div class="container">
+          <div class="groupimagecontainer">
+            <div class="groupimage">
+              <img src="./image001.jpg" alt="" />
+              <!-- <img src="./main-thumb-402783244-50-oqkuynknwoklxzzmhhnxnqgfhsuobghy.jpeg.png" alt=""> -->
             </div>
-            
-            <div class="container">
-                <div class="groupimagecontainer">
-                    <div class="groupimage">
-                        <img src="./image001.jpg" alt="">
-                        <!-- <img src="./main-thumb-402783244-50-oqkuynknwoklxzzmhhnxnqgfhsuobghy.jpeg.png" alt=""> -->
-                    </div>
-                    <div class="groupimagetext">
-                        <h4>Uzoma</h4>
-                        <!-- <p>Talking After Careful Thinking ="TACT"</p> -->
-                    </div>
-                </div>
-                <div class="grouptext">
-                    <!-- <h3>Sorem ipsum dolor sit amet, consectetur adipiscing elit.</h3> -->
-                    <h4>
-                        <!-- Corem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. -->
-                        🎯One of my projects took me to Yobe, some years ago. I'd been told that it was a highly volatile area (at that time). But I regarded it simply as an info. 
-                        <br>
-
-                        ❗Not only was there no direct flight (I had to fly to Maiduguri, then travel by road to Yobe), there was a particular road that (unbeknownst to me) we had to pass before 4pm, after which it was blocked till the next day (Boko Haram still  terrorised this area that year). 
-                        <br>
-                        
-                        ♻On this particular day, my flight was delayed, so basically we got to the road just when they blocked it. I had a training in Yobe the following morning, so going back was not an option. Even if I wanted to, the whole stretch of road was blocked - both ways! 
-                        <br>
-                        
-                        🚥You guessed right! I had to sleep on the road, inside the the car - just me and the driver that had been sent to pick me! Later in the night, we could hear the terrorists' gunshots in the nearby forest! Let's even leave out the fact that I didn't blink an eyelid that night - mosquito wanted to finish me! 
-                        <br>
-                        
-                        🤔But my point is:
-                        If I had been told earlier, that I would sleep on the road that night, in that situation and terrifying condition, I would probably not have embarked on that project at all! 
-                        <br>
-                        
-                        But I found myself in that situation, and I survived it! My brain readjusted, changed and adopted to the new experience I was going through. This helped me live through the horror. 
-                        <br>
-                        
-                        ✍But...  
-                        - If the brain can re-organise itself, why then do we panic sometimes and/overreact in certain situations?
-                        
-                    </h4>
-                    <div class="image">
-                        <div>
-                            <img src="./like.png" alt=""><p><small>200+</small></p>
-                        </div>
-                        <div>
-                            <img src="./dislike.png" alt=""><p><small>12+</small></p>
-                        </div>
-                        <div>
-                            <img src="./message-text.png" alt=""><p><small>200+</small></p>
-                        </div>
-                    </div>
-                </div>
+            <div class="groupimagetext">
+              <h4>Uzoma</h4>
+              <!-- <p>Talking After Careful Thinking ="TACT"</p> -->
             </div>
+          </div>
+          <div class="grouptext">
+            <!-- <h3>Sorem ipsum dolor sit amet, consectetur adipiscing elit.</h3> -->
+            <h4>
+              <!-- Corem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. -->
+              🎯One of my projects took me to Yobe, some years ago. I'd been
+              told that it was a highly volatile area (at that time). But I
+              regarded it simply as an info.
+              <br />
 
-            <div class="container">
-                <div class="groupimagecontainer">
-                    <div class="groupimage">
-                        <img src="./image002.jpg" alt="">
-                        <!-- <img src="./main-thumb-402783244-50-oqkuynknwoklxzzmhhnxnqgfhsuobghy.jpeg.png" alt=""> -->
-                    </div>
-                    <div class="groupimagetext">
-                        <h4>Uzoma</h4>
-                        <!-- <p>Horem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
-                    </div>
-                </div>
-                <div class="grouptext">
-                    <!-- <h3>Sorem ipsum dolor sit amet, consectetur adipiscing elit.</h3> -->
-                    <h4>
-                        <!-- Corem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. -->
-                        Years ago at my workplace, I was inadvertently making silent enemies because I was brazenly outspoken and would "...say things the way they were."
-                        <br>
+              ❗Not only was there no direct flight (I had to fly to Maiduguri,
+              then travel by road to Yobe), there was a particular road that
+              (unbeknownst to me) we had to pass before 4pm, after which it was
+              blocked till the next day (Boko Haram still terrorised this area
+              that year).
+              <br />
 
-                        I was being "brutally honest" and forgetting that the brutality part was real for some people!🤦🏻♀
-                        <br>
-                        I didn't mean any harm; didn't mean to hurt anybody, but that's exactly what I was doing. And while I was excelling at my job role, I wasn't many people's favourite person to talk to🙆🏻♀
-                        <br>
-                        Then I reflected and realised what was going on - and that sent me to a journey of series (years) of self development courses. 
-                        <br>
-                        Today, I still pass on negative messages, still honest about my opinion and still have those difficult conversations with people, but I'm doing them differently. The result is that people TRUST me more; they trust that I'll give the necessary feedback in the most objective, beneficial and win-win way.  
-                        <br>
-                        👇🏼How about you? 
-                        What's your tact and diplomacy story or experience?
-                        
+              ♻On this particular day, my flight was delayed, so basically we
+              got to the road just when they blocked it. I had a training in
+              Yobe the following morning, so going back was not an option. Even
+              if I wanted to, the whole stretch of road was blocked - both ways!
+              <br />
 
-                    </h4>
-                    <div class="image">
-                        <div>
-                            <img src="./like.png" alt=""><p><small>200+</small></p>
-                        </div>
-                        <div>
-                            <img src="./dislike.png" alt=""><p><small>12</small></p>
-                        </div>
-                        <div>
-                            <img src="./message-text.png" alt=""><p><small>200+</small></p>
-                        </div>
-                    </div>
-                </div>
+              🚥You guessed right! I had to sleep on the road, inside the the
+              car - just me and the driver that had been sent to pick me! Later
+              in the night, we could hear the terrorists' gunshots in the nearby
+              forest! Let's even leave out the fact that I didn't blink an
+              eyelid that night - mosquito wanted to finish me!
+              <br />
+
+              🤔But my point is: If I had been told earlier, that I would sleep
+              on the road that night, in that situation and terrifying
+              condition, I would probably not have embarked on that project at
+              all!
+              <br />
+
+              But I found myself in that situation, and I survived it! My brain
+              readjusted, changed and adopted to the new experience I was going
+              through. This helped me live through the horror.
+              <br />
+
+              ✍But... - If the brain can re-organise itself, why then do we
+              panic sometimes and/overreact in certain situations?
+            </h4>
+            <div class="image">
+              <div>
+                <img src="./like.png" alt="" />
+                <p><small>200+</small></p>
+              </div>
+              <div>
+                <img src="./dislike.png" alt="" />
+                <p><small>12+</small></p>
+              </div>
+              <div>
+                <img src="./message-text.png" alt="" />
+                <p><small>200+</small></p>
+              </div>
             </div>
+          </div>
+        </div>
 
-            <div class="container">
-                <div class="groupimagecontainer">
-                    <div class="groupimage">
-                        <img src="./image003.jpg" alt="">
-                        <!-- <img src="./main-thumb-402783244-50-oqkuynknwoklxzzmhhnxnqgfhsuobghy.jpeg.png" alt=""> -->
-                    </div>
-                    <div class="groupimagetext">
-                        <h4>Uzoma Uduma</h4>
-                        <!-- <p>Horem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
-                    </div>
-                </div>
-                <div class="grouptext">
-                    <!-- <h3>Sorem ipsum dolor sit amet, consectetur adipiscing elit.</h3> -->
-                    <h4>
-                        <!-- Corem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. -->
-                        A 𝙎𝙖𝙫𝙞𝙣𝙜𝙨 & 𝙄𝙣𝙫𝙚𝙨𝙩𝙢𝙚𝙣𝙩 company's Rep successfully convinced me to register with them. I chose a plan and asked for a brochure with more details. Instead, she sent a different one,
-                        claiming that it was exactly the same as the one I wanted, and that they both operated the same way. I insisted on being sent the one that got me sold, or I'd back down.
-                        
-                        Finally, she sent me the right brochure, explaining that what she sent earlier was mostly preferred by people. Then she pointed out that the brochure I wanted was in her other phone which she'd lost recently, and that she had to ask her colleagues to send it to her (so she could forward to me). 
-                        
-                        🤷🏻♀𝘞𝘩𝘺 𝘥𝘪𝘥𝘯'𝘵 𝘴𝘩𝘦 𝘫𝘶𝘴𝘵 𝘴𝘢𝘺 𝘢𝘭𝘭 𝘵𝘩𝘢𝘵, 𝘪𝘯𝘴𝘵𝘦𝘢𝘥 𝘰𝘧 𝘵𝘳𝘺𝘪𝘯𝘨 𝘵𝘰 𝘴𝘦𝘭𝘭 𝘮𝘦 𝘸𝘩𝘢𝘵 𝘐 𝘥𝘪𝘥𝘯'𝘵 𝘸𝘢𝘯𝘵?
-                        
-                    </h4>
-                    <div class="image">
-                        <div>
-                            <img src="./like.png" alt=""><p><small>200+</small></p>
-                        </div>
-                        <div>
-                            <img src="./dislike.png" alt=""><p><small>12</small></p>
-                        </div>
-                        <div>
-                            <img src="./message-text.png" alt=""><p><small>200+</small></p>
-                        </div>
-                    </div>
-                    <!-- <div class="bigimage">
+        <div class="container">
+          <div class="groupimagecontainer">
+            <div class="groupimage">
+              <img src="./image002.jpg" alt="" />
+              <!-- <img src="./main-thumb-402783244-50-oqkuynknwoklxzzmhhnxnqgfhsuobghy.jpeg.png" alt=""> -->
+            </div>
+            <div class="groupimagetext">
+              <h4>Uzoma</h4>
+              <!-- <p>Horem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
+            </div>
+          </div>
+          <div class="grouptext">
+            <!-- <h3>Sorem ipsum dolor sit amet, consectetur adipiscing elit.</h3> -->
+            <h4>
+              <!-- Corem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. -->
+              Years ago at my workplace, I was inadvertently making silent
+              enemies because I was brazenly outspoken and would "...say things
+              the way they were."
+              <br />
+
+              I was being "brutally honest" and forgetting that the brutality
+              part was real for some people!🤦🏻♀
+              <br />
+              I didn't mean any harm; didn't mean to hurt anybody, but that's
+              exactly what I was doing. And while I was excelling at my job
+              role, I wasn't many people's favourite person to talk to🙆🏻♀
+              <br />
+              Then I reflected and realised what was going on - and that sent me
+              to a journey of series (years) of self development courses.
+              <br />
+              Today, I still pass on negative messages, still honest about my
+              opinion and still have those difficult conversations with people,
+              but I'm doing them differently. The result is that people TRUST me
+              more; they trust that I'll give the necessary feedback in the most
+              objective, beneficial and win-win way.
+              <br />
+              👇🏼How about you? What's your tact and diplomacy story or
+              experience?
+            </h4>
+            <div class="image">
+              <div>
+                <img src="./like.png" alt="" />
+                <p><small>200+</small></p>
+              </div>
+              <div>
+                <img src="./dislike.png" alt="" />
+                <p><small>12</small></p>
+              </div>
+              <div>
+                <img src="./message-text.png" alt="" />
+                <p><small>200+</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="groupimagecontainer">
+            <div class="groupimage">
+              <img src="./image003.jpg" alt="" />
+              <!-- <img src="./main-thumb-402783244-50-oqkuynknwoklxzzmhhnxnqgfhsuobghy.jpeg.png" alt=""> -->
+            </div>
+            <div class="groupimagetext">
+              <h4>Uzoma Uduma</h4>
+              <!-- <p>Horem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
+            </div>
+          </div>
+          <div class="grouptext">
+            <!-- <h3>Sorem ipsum dolor sit amet, consectetur adipiscing elit.</h3> -->
+            <h4>
+              <!-- Corem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. -->
+              A 𝙎𝙖𝙫𝙞𝙣𝙜𝙨 & 𝙄𝙣𝙫𝙚𝙨𝙩𝙢𝙚𝙣𝙩 company's Rep successfully convinced me to
+              register with them. I chose a plan and asked for a brochure with
+              more details. Instead, she sent a different one, claiming that it
+              was exactly the same as the one I wanted, and that they both
+              operated the same way. I insisted on being sent the one that got
+              me sold, or I'd back down. Finally, she sent me the right
+              brochure, explaining that what she sent earlier was mostly
+              preferred by people. Then she pointed out that the brochure I
+              wanted was in her other phone which she'd lost recently, and that
+              she had to ask her colleagues to send it to her (so she could
+              forward to me). 🤷🏻♀𝘞𝘩𝘺 𝘥𝘪𝘥𝘯'𝘵 𝘴𝘩𝘦 𝘫𝘶𝘴𝘵 𝘴𝘢𝘺 𝘢𝘭𝘭 𝘵𝘩𝘢𝘵, 𝘪𝘯𝘴𝘵𝘦𝘢𝘥 𝘰𝘧
+              𝘵𝘳𝘺𝘪𝘯𝘨 𝘵𝘰 𝘴𝘦𝘭𝘭 𝘮𝘦 𝘸𝘩𝘢𝘵 𝘐 𝘥𝘪𝘥𝘯'𝘵 𝘸𝘢𝘯𝘵?
+            </h4>
+            <div class="image">
+              <div>
+                <img src="./like.png" alt="" />
+                <p><small>200+</small></p>
+              </div>
+              <div>
+                <img src="./dislike.png" alt="" />
+                <p><small>12</small></p>
+              </div>
+              <div>
+                <img src="./message-text.png" alt="" />
+                <p><small>200+</small></p>
+              </div>
+            </div>
+            <!-- <div class="bigimage">
                         <img src="./div.png" alt="">
                     </div> -->
-                </div>
-            </div>
-
-            <div class="container">
-                <div class="groupimagecontainer">
-                    <div class="groupimage">
-                        <img src="./image004.jpg" alt="">
-                    </div>
-                    <div class="groupimagetext">
-                        <h4>Uzoma Uduma</h4>
-                        <!-- <p>Horem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
-                    </div>
-                </div>
-                <div class="grouptext">
-                    <!-- <h3>Sorem ipsum dolor sit amet, consectetur adipiscing elit.</h3> -->
-                    <h4>
-                        <!-- Corem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. -->
-                        Is it 'required,' or 'optional' to say "𝕋𝕙𝕒𝕟𝕜 𝕪𝕠𝕦" upon receiving payment for a service you have rendered? 
-
-                        More specifically, is it right for a client to demand that you thank them, after they pay you?
-                        
-                        This was my experience two weeks ago with a client that I was ghostwriting for. 
-                        
-                        When he made the first instalmental payment for the book I was writing for him (and sent evidence of payment via WhatsApp Text, which was the medium through which we were communicating at the time) I acknowledged receipt of the payment. 
-                        
-                         Me: This payment is received ✅
-                         Him: Excuse me, please. I expect you to say thank you for the payment, even if you worked for it. 
-                        
-                        I thought he was rude; the tone of his message didn't come across to me as respectful. 
-                        
-                        Therefore, typical of me, I addressed it immediately, expressing exactly how I felt. 
-                        
-                        By the time he was done explaining himself, it was obvious that if he had coined his message differently, or chose his words purposefully, there wouldn't have been any misunderstanding.
-                        
-                        🤔How would you have reacted if you were in my position?
-                        
-                    </h4>
-                    <div class="image">
-                        <div>
-                            <img src="./like.png" alt=""><p><small>200+</small></p>
-                        </div>
-                        <div>
-                            <img src="./dislike.png" alt=""><p><small>12</small></p>
-                        </div>
-                        <div>
-                            <img src="./message-text.png" alt=""><p><small>200+</small></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="buttoncontainer">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>...</button>
-            </div>
+          </div>
         </div>
+
+        <div class="container">
+          <div class="groupimagecontainer">
+            <div class="groupimage">
+              <img src="./image004.jpg" alt="" />
+            </div>
+            <div class="groupimagetext">
+              <h4>Uzoma Uduma</h4>
+              <!-- <p>Horem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
+            </div>
+          </div>
+          <div class="grouptext">
+            <!-- <h3>Sorem ipsum dolor sit amet, consectetur adipiscing elit.</h3> -->
+            <h4>
+              <!-- Corem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. -->
+              Is it 'required,' or 'optional' to say "𝕋𝕙𝕒𝕟𝕜 𝕪𝕠𝕦" upon receiving
+              payment for a service you have rendered? More specifically, is it
+              right for a client to demand that you thank them, after they pay
+              you? This was my experience two weeks ago with a client that I was
+              ghostwriting for. When he made the first instalmental payment for
+              the book I was writing for him (and sent evidence of payment via
+              WhatsApp Text, which was the medium through which we were
+              communicating at the time) I acknowledged receipt of the payment.
+              Me: This payment is received ✅ Him: Excuse me, please. I expect
+              you to say thank you for the payment, even if you worked for it. I
+              thought he was rude; the tone of his message didn't come across to
+              me as respectful. Therefore, typical of me, I addressed it
+              immediately, expressing exactly how I felt. By the time he was
+              done explaining himself, it was obvious that if he had coined his
+              message differently, or chose his words purposefully, there
+              wouldn't have been any misunderstanding. 🤔How would you have
+              reacted if you were in my position?
+            </h4>
+            <div class="image">
+              <div>
+                <img src="./like.png" alt="" />
+                <p><small>200+</small></p>
+              </div>
+              <div>
+                <img src="./dislike.png" alt="" />
+                <p><small>12</small></p>
+              </div>
+              <div>
+                <img src="./message-text.png" alt="" />
+                <p><small>200+</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="buttoncontainer">
+          <button>1</button>
+          <button>2</button>
+          <button>3</button>
+          <button>...</button>
+        </div> -->
+      </div>
     </div>
 
     <div class="Footer">
-        <div class="container">
-            <div class="top">
-                <div class="logoform">
-                    <a href="./home.html">
-                        <img src="./aflad.png" alt="">
-                    </a>
-                    <input type="text" placeholder="Placeholder" />
-                </div>
-                <div class="Company">
-                    <h5>Community</h5>
-                    <h6>Publications</h6>
-                    <h6>Forum</h6>
-                    <h6>Groups</h6>
-                </div>
-                <div class="Products">
-                    <h5>Company</h5>
-                    <h6>Home</h6>
-                    <h6>About Us</h6>
-                    <h6>Contact Us</h6>
-                </div>
-                <div class="footerbutton">
-                    <button class="white">Sign up</button>
-                    <button>Sign in</button>
-                </div>
-            </div>
-            <div class="under">
-                <img src="./Rectangle.png" alt="">
-            </div>
+      <div class="container">
+        <div class="top">
+          <div class="logoform">
+            <a href="/">
+              <img src="./aflad.png" alt="" />
+            </a>
+            <input type="text" placeholder="Placeholder" />
+          </div>
+          <div class="Company">
+            <h5>Community</h5>
+            <a href="./publication.html">Publications</a>
+          </div>
+          <div class="Products">
+            <h5>Company</h5>
+            <a href="/">Home</a>
+            <br />
+            <br />
+            <a href="./about.html">About Us</a>
+            <br />
+            <br />
+            <a href="./contact.html">Contact Us</a>
+          </div>
+          <div class="footerbutton">
+            <button class="white">Sign up For Training</button>
+            <button>Sign in For Training</button>
+          </div>
         </div>
+        <div class="under">
+          <img src="./Rectangle.png" alt="" />
+        </div>
+      </div>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navLinks = document.querySelector('.links');
-            const menuOverlay = document.querySelector('.menu-overlay');
-            const navItems = document.querySelectorAll('.links li a');
+      document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.querySelector(".menu-toggle");
+        const navLinks = document.querySelector(".links");
+        const menuOverlay = document.querySelector(".menu-overlay");
+        const navItems = document.querySelectorAll(".links li a");
 
-            function toggleMenu() {
-                menuToggle.classList.toggle('active');
-                navLinks.classList.toggle('active');
-                
-                if (menuOverlay) {
-                    menuOverlay.classList.toggle('active');
-                }
-                
-                if (navLinks.classList.contains('active')) {
-                    document.body.style.overflow = 'hidden';
-                } else {
-                    document.body.style.overflow = '';
-                }
+        function toggleMenu() {
+          menuToggle.classList.toggle("active");
+          navLinks.classList.toggle("active");
+
+          if (menuOverlay) {
+            menuOverlay.classList.toggle("active");
+          }
+
+          if (navLinks.classList.contains("active")) {
+            document.body.style.overflow = "hidden";
+          } else {
+            document.body.style.overflow = "";
+          }
+        }
+
+        if (menuToggle) {
+          menuToggle.addEventListener("click", toggleMenu);
+        }
+
+        if (menuOverlay) {
+          menuOverlay.addEventListener("click", toggleMenu);
+        }
+
+        navItems.forEach((item) => {
+          item.addEventListener("click", () => {
+            if (
+              window.innerWidth <= 768 &&
+              navLinks.classList.contains("active")
+            ) {
+              toggleMenu();
             }
-
-            if (menuToggle) {
-                menuToggle.addEventListener('click', toggleMenu);
-            }
-
-            if (menuOverlay) {
-                menuOverlay.addEventListener('click', toggleMenu);
-            }
-
-            navItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    if (window.innerWidth <= 768 && navLinks.classList.contains('active')) {
-                        toggleMenu();
-                    }
-                });
-            });
-
-            window.addEventListener('resize', function() {
-                if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
-                    menuToggle.classList.remove('active');
-                    navLinks.classList.remove('active');
-                    if (menuOverlay) {
-                        menuOverlay.classList.remove('active');
-                    }
-                    document.body.style.overflow = '';
-                }
-            });
+          });
         });
+
+        window.addEventListener("resize", function () {
+          if (
+            window.innerWidth > 768 &&
+            navLinks.classList.contains("active")
+          ) {
+            menuToggle.classList.remove("active");
+            navLinks.classList.remove("active");
+            if (menuOverlay) {
+              menuOverlay.classList.remove("active");
+            }
+            document.body.style.overflow = "";
+          }
+        });
+      });
     </script>
-</body>
+  </body>
 </html>

@@ -1,1110 +1,1179 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            text-align: center;
-            background: radial-gradient(69.65% 61.69% at 12.5% 52.05%, rgba(41, 66, 112, 0.2) 0%, rgba(255, 255, 255, 0) 100%),
-                        radial-gradient(42.07% 41.13% at 90% 48.85%, rgba(249, 70, 3, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%),
-                        radial-gradient(59.37% 52.58% at 29.76% 1.36%, rgba(249, 70, 3, 0.246) 0%, rgba(255, 255, 255, 0.6) 33.07%);
-            font-family: 'Epilogue', sans-serif;
-            margin: 0;
-            width: 100%;
-            overflow-x: hidden;
-        }
-
-        a {
-            text-decoration: none;
-            color: #3A3A3A;
-        }
-
-        nav {
-            justify-content: space-between;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            font-family: 'Epilogue', sans-serif;
-            padding: 10px 5%;
-            position: relative;
-        }
-
-        nav .logo {
-            width: 8%;
-            min-width: 50px;
-        }
-
-        nav .logo img {
-            width: 100%;
-            height: auto;
-            max-width: 100%;
-        }
-
-        nav .button .white {
-            background-color: #ffffff;
-            color: #294270;
-        }
-
-        nav .button .blue a {
-            color: #ffffff;
-            background-color: #294270;
-        }
-
-        .navline {
-            border: 1px solid #294270;
-            width: 100%;
-        }
-
-        nav .button {
-            text-align: right;
-            width: 20%;
-            min-width: 120px;
-        }
-
-        nav button {
-            padding: 10px;
-            color: white;
-            background-color: #294270;
-            border-radius: 10.3579px;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-            max-width: 120px;
-        }
-
-        nav .links {
-            display: flex;
-            align-items: center;
-            width: 70%;
-            max-width: 100%;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            width: 100%;
-            justify-content: space-around;
-            cursor: pointer;
-            margin: 0;
-            padding: 0;
-        }
-
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            padding: 10px;
-        }
-
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background-color: #294270;
-            margin: 2px 0;
-            transition: all 0.3s ease;
-        }
-
-        .menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        .menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
-        }
-
-        .menu-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 998;
-        }
-
-        .menu-overlay.active {
-            display: block;
-        }
-
-        .homecontainer {
-            display: flex;
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            justify-content: space-between;
-            align-items: center;
-            min-height: 60vh;
-        }
-
-        .text {
-            width: 50%;
-            max-width: 500px;
-            text-align: left;
-        }
-
-        .text h1 {
-            font-family: 'Epilogue', sans-serif;
-            font-style: normal;
-            font-weight: 700;
-            font-size: 40px;
-            line-height: 120%;
-            color: #294270;
-            margin: 0 0 20px;
-        }
-
-        .text p {
-            font-family: 'Epilogue', sans-serif;
-            font-style: normal;
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 120%;
-            color: #3A3A3A;
-            margin: 0 0 20px;
-        }
-
-        .text button {
-            padding: 10px 20px;
-            background-color: #294270;
-            color: white;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-            font-family: 'Epilogue', sans-serif;
-            font-size: 16px;
-        }
-
-        .imagecontainer {
-            width: 45%;
-            max-width: 500px;
-        }
-
-        .imagecontainer img {
-            width: 100%;
-            height: auto;
-            max-width: 100%;
-        }
-
-        .nocolor {
-            background-color: #fff;
-            padding: 20px 0;
-        }
-
-        .about, .wedo {
-            display: flex;
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto 20px;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .aboutimage, .wedoimage {
-            width: 45%;
-            max-width: 500px;
-        }
-
-        .aboutimage img, .wedoimage img {
-            width: 100%;
-            height: auto;
-            max-width: 100%;
-        }
-
-        .abouttext, .wedotext {
-            width: 50%;
-            max-width: 500px;
-            text-align: left;
-        }
-
-        .abouttext h1, .wedotext h1 {
-            font-family: 'Epilogue', sans-serif;
-            font-style: normal;
-            font-weight: 700;
-            font-size: 32px;
-            line-height: 120%;
-            color: #294270;
-            margin: 0 0 20px;
-        }
-
-        .abouttext p, .wedotext p {
-            font-family: 'Epilogue', sans-serif;
-            font-style: normal;
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 120%;
-            color: #3A3A3A;
-            margin: 0 0 20px;
-        }
-
-        .abouttext button, .wedotext button {
-            padding: 10px 20px;
-            border: 1px solid #294270;
-            background-color: transparent;
-            border-radius: 3px;
-            cursor: pointer;
-            font-family: 'Epilogue', sans-serif;
-            font-size: 16px;
-            color: #294270;
-        }
-
-        .wedotext li {
-            list-style: none;
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-            text-align: left;
-        }
-
-        .wedotext img {
-            width: 20px;
-            height: 20px;
-            margin-right: 10px;
-        }
-
-        .booktraining {
-            text-align: center;
-            padding: 20px;
-            background-color: #294270;
-            color: white;
-        }
-
-        .booktraining h3 {
-            font-family: 'Epilogue', sans-serif;
-            font-style: normal;
-            font-weight: 700;
-            font-size: 24px;
-            line-height: 120%;
-            margin: 0 0 20px;
-        }
-
-        .booktraining button {
-            padding: 16px 20px;
-            background-color: #fff;
-            color: #294270;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-            font-family: 'Epilogue', sans-serif;
-            font-size: 16px;
-        }
-
-        .trainingcontainer {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .softskilled {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .images {
-            text-align: center;
-            background: #FFFFFF;
-            border: 1px solid #BDC4D3;
-            border-radius: 20px;
-            padding: 20px;
-            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .images img {
-            width: 100%;
-            height: auto;
-            max-width: 100%;
-            margin-bottom: 10px;
-        }
-
-        .images button {
-            padding: 10px 20px;
-            background-color: #294270;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            font-family: 'Epilogue', sans-serif;
-            font-size: 16px;
-        }
-
-        .benefits {
-            padding: 20px;
-            background-color: #fff;
-        }
-
-        .benefits h3 {
-            font-family: 'Epilogue', sans-serif;
-            font-style: normal;
-            font-weight: 700;
-            font-size: 24px;
-            line-height: 120%;
-            color: #294270;
-            margin: 0 0 20px;
-        }
-
-        .membercontainer {
-            display: flex;
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-        .members {
-            width: 22%;
-            max-width: 200px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .members .icon img {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 10px;
-        }
-
-        .members p {
-            font-family: 'Epilogue', sans-serif;
-            font-style: normal;
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 120%;
-            color: #3A3A3A;
-        }
-
-        .latestpublications {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto 20px;
-        }
-
-        .latestpublications .images {
-            text-align: center;
-            background: #FFFFFF;
-            border: 1px solid #BDC4D3;
-            border-radius: 20px;
-            padding: 20px;
-            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .latestpublications .images img {
-            width: 100%;
-            height: auto;
-            max-width: 100%;
-            margin-bottom: 10px;
-        }
-
-        .latestpublications .images h4 {
-            font-family: 'Epilogue', sans-serif;
-            font-style: normal;
-            font-weight: 600;
-            font-size: 18px;
-            line-height: 120%;
-            color: #294270;
-            margin: 10px 0;
-        }
-
-        .latestpublications .images .book {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 60px;
-        }
-
-        .latestpublications .images .book p {
-            font-family: 'Epilogue', sans-serif;
-            font-style: normal;
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 120%;
-            color: #3A3A3A;
-            margin: 0;
-        }
-
-        .latestpublications .images .book button {
-            border: none;
-            background-color: transparent;
-            color: #294270;
-            font-family: 'Epilogue', sans-serif;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .latestpublications .images .book button:last-child {
-            background-color: #294270;
-            color: white;
-            border-radius: 10px;
-            padding: 5px 15px;
-        }
-
-        button[style*="border: 1px solid #294270"] {
-            padding: 10px 20px;
-            border-radius: 3px;
-            cursor: pointer;
-            font-family: 'Epilogue', sans-serif;
-            font-size: 16px;
-        }
-
-        .newsletter {
-            display: flex;
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto 20px;
-            padding: 16px;
-            background: #FFFFFF;
-            border: 1px solid #BDC4D3;
-            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 31.875px;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .newsletter .text {
-            width: 50%;
-            text-align: left;
-        }
-
-        .newsletter h2 {
-            font-family: 'Epilogue', sans-serif;
-            font-style: normal;
-            font-weight: 700;
-            font-size: 32px;
-            line-height: 120%;
-            color: #3A3A3A;
-        }
-
-        .newsletter p {
-            font-family: 'Epilogue', sans-serif;
-            font-style: normal;
-            font-weight: 200;
-            font-size: 20px;
-            line-height: 120%;
-            text-align: justify;
-            color: #C2C2C2;
-        }
-
-        .newsletter form {
-            text-align: right;
-        }
-
-        .newsletter input {
-            padding: 10px;
-            border-radius: 10px;
-            outline: none;
-            border: 1px solid #294270;
-            width: 60%;
-            max-width: 200px;
-        }
-
-        .newsletter button {
-            padding: 10px;
-            color: white;
-            background-color: #294270;
-            border-radius: 10.3579px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .Footer {
-            width: 100%;
-            background: #E6EDEF;
-            margin-bottom: 10px;
-            margin-top: 100px;
-        }
-
-        .Footer .logoform {
-            width: 30%;
-        }
-
-        .Footer .logoform img {
-            width: 100%;
-            max-width: 100px;
-            height: auto;
-        }
-
-        .Footer .logoform input {
-            padding: 10px;
-            background: #FEFEFE;
-            border-radius: 30px;
-            border: none;
-            width: 80%;
-            max-width: 200px;
-        }
-
-        .Footer .top {
-            display: flex;
-            width: 100%;
-            padding: 10px;
-            text-align: justify;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .Footer .under {
-            width: 100%;
-        }
-
-        .Footer .under img {
-            width: 100%;
-            max-width: 100%;
-        }
-
-        .Footer .container {
-            margin: 0 auto;
-            padding: 10px;
-            text-align: justify;
-            width: 90%;
-            max-width: 1200px;
-        }
-
-        .Footer .Company,
-        .Footer .Products {
-            width: 25%;
-        }
-
-        .Footer .footerbutton {
-            display: flex;
-            flex-direction: column-reverse;
-            width: 15%;
-            padding: 5px;
-        }
-
-        .Footer .footerbutton button {
-            width: 100%;
-            padding: 10px;
-            color: white;
-            background-color: #294270;
-            border: none;
-            margin-bottom: 10%;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-
-        .Footer .footerbutton .white {
-            background-color: #ffffff;
-            color: #294270;
-        }
-
-        .Footer .top h5 {
-            font-family: 'Epilogue', sans-serif;
-            font-style: normal;
-            font-weight: 800;
-            font-size: 20px;
-            line-height: 120%;
-            text-align: justify;
-            color: #294270;
-        }
-
-        .Footer .top h6 {
-            font-family: 'Epilogue', sans-serif;
-            font-style: normal;
-            font-weight: 200;
-            font-size: 16px;
-            line-height: 120%;
-            text-align: justify;
-        }
-
-        @media screen and (max-width: 768px) {
-            nav {
-                flex-wrap: wrap;
-            }
-
-            .menu-toggle {
-                display: flex;
-                z-index: 999;
-            }
-
-            nav .links {
-                display: none;
-                width: 100%;
-                background: #fff;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                padding: 20px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                z-index: 999;
-            }
-
-            nav .links.active {
-                display: block;
-            }
-
-            nav ul {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            nav ul li {
-                margin: 10px 0;
-                text-align: center;
-            }
-
-            nav .button {
-                width: 100%;
-                text-align: center;
-                margin-top: 10px;
-            }
-
-            nav .button button {
-                width: 45%;
-                margin: 5px;
-            }
-
-            nav .logo {
-                width: 20%;
-            }
-
-            .homecontainer {
-                flex-direction: column;
-                width: 95%;
-            }
-
-            .text {
-                width: 100%;
-                max-width: 100%;
-                margin-bottom: 20px;
-            }
-
-            .imagecontainer {
-                width: 100%;
-                max-width: 100%;
-            }
-
-            .about, .wedo {
-                flex-direction: column;
-                width: 95%;
-            }
-
-            .aboutimage, .wedoimage {
-                width: 100%;
-                max-width: 100%;
-                margin-bottom: 20px;
-            }
-
-            .abouttext, .wedotext {
-                width: 100%;
-                max-width: 100%;
-            }
-
-            .softskilled {
-                grid-template-columns: 1fr;
-            }
-
-            .membercontainer {
-                flex-direction: column;
-                width: 95%;
-            }
-
-            .members {
-                width: 100%;
-                max-width: 100%;
-                margin-bottom: 20px;
-            }
-
-            .latestpublications {
-                grid-template-columns: 1fr;
-                width: 95%;
-            }
-
-            .newsletter {
-                flex-direction: column;
-                text-align: center;
-                width: 95%;
-            }
-
-            .newsletter .text {
-                width: 100%;
-            }
-
-            .newsletter input {
-                width: 70%;
-                margin-bottom: 10px;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            nav .logo {
-                width: 25%;
-            }
-
-            nav .button {
-                width: 50%;
-            }
-
-            nav .links {
-                width: 100%;
-            }
-
-            .text h1 {
-                font-size: 32px;
-            }
-
-            .text p {
-                font-size: 14px;
-            }
-
-            .abouttext h1, .wedotext h1 {
-                font-size: 24px;
-            }
-
-            .abouttext p, .wedotext p {
-                font-size: 14px;
-            }
-
-            .booktraining h3 {
-                font-size: 20px;
-            }
-
-            .trainingcontainer h1 {
-                font-size: 24px;
-            }
-
-            .images button {
-                font-size: 14px;
-            }
-
-            .benefits h3 {
-                font-size: 20px;
-            }
-
-            .members .icon img {
-                width: 40px;
-                height: 40px;
-            }
-
-            .members p {
-                font-size: 14px;
-            }
-
-            .latestpublications .images h4 {
-                font-size: 16px;
-            }
-
-            .latestpublications .images .book p {
-                font-size: 12px;
-            }
-
-            .newsletter h2 {
-                font-size: 24px;
-            }
-
-            .newsletter p {
-                font-size: 16px;
-            }
-
-            .Footer .top {
-                flex-direction: column;
-            }
-
-            .Footer .logoform,
-            .Footer .Company,
-            .Footer .Products,
-            .Footer .footerbutton {
-                width: 100%;
-                margin-bottom: 20px;
-            }
-
-            .Footer .footerbutton button {
-                margin-bottom: 5%;
-            }
-        }
+      * {
+          box-sizing: border-box;
+      }
+
+      body {
+          text-align: center;
+          background: white
+          font-family: 'Epilogue', sans-serif;
+          margin: 0;
+          width: 100%;
+          overflow-x: hidden;
+      }
+
+      a {
+          text-decoration: none;
+          color: #3A3A3A;
+      }
+
+      nav {
+          justify-content: space-between;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          font-family: 'Epilogue', sans-serif;
+          padding: 10px 5%;
+          position: relative;
+      }
+
+      nav .logo {
+          width: 8%;
+          min-width: 50px;
+      }
+
+      nav .logo img {
+          width: 100%;
+          height: auto;
+          max-width: 100%;
+      }
+
+      nav .button .white {
+          background-color: #ffffff;
+          color: #294270;
+      }
+
+      nav .button .blue a {
+          color: #ffffff;
+          background-color: #294270;
+      }
+
+      .navline {
+          border: 1px solid #294270;
+          width: 100%;
+      }
+
+      nav .button {
+          text-align: right;
+          width: 20%;
+          min-width: 120px;
+      }
+
+      nav button {
+          padding: 10px;
+          color: white;
+          background-color: #294270;
+          border-radius: 10.3579px;
+          border: none;
+          cursor: pointer;
+          width: 100%;
+          max-width: 120px;
+      }
+
+      nav .links {
+          display: flex;
+          align-items: center;
+          width: 70%;
+          max-width: 100%;
+      }
+
+      nav ul {
+          list-style: none;
+          display: flex;
+          width: 100%;
+          justify-content: space-around;
+          cursor: pointer;
+          margin: 0;
+          padding: 0;
+      }
+
+      .menu-toggle {
+          display: none;
+          flex-direction: column;
+          cursor: pointer;
+          padding: 10px;
+      }
+
+      .menu-toggle span {
+          width: 25px;
+          height: 3px;
+          background-color: #294270;
+          margin: 2px 0;
+          transition: all 0.3s ease;
+      }
+
+      .menu-toggle.active span:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .menu-toggle.active span:nth-child(2) {
+          opacity: 0;
+      }
+
+      .menu-toggle.active span:nth-child(3) {
+          transform: rotate(-45deg) translate(7px, -7px);
+      }
+
+      .menu-overlay {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.5);
+          z-index: 998;
+      }
+
+      .menu-overlay.active {
+          display: block;
+      }
+
+      .homecontainer {
+          display: flex;
+          width: 90%;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 20px;
+          justify-content: space-between;
+          align-items: center;
+          min-height: 60vh;
+      }
+
+      .text {
+          width: 50%;
+          max-width: 500px;
+          text-align: left;
+      }
+
+      .text h1 {
+          font-family: 'Epilogue', sans-serif;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 40px;
+          line-height: 120%;
+          color: #294270;
+          margin: 0 0 20px;
+      }
+
+      .text p {
+          font-family: 'Epilogue', sans-serif;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 120%;
+          color: #3A3A3A;
+          margin: 0 0 20px;
+      }
+
+      .text button {
+          padding: 10px 20px;
+          background-color: #294270;
+          color: white;
+          border: none;
+          border-radius: 3px;
+          cursor: pointer;
+          font-family: 'Epilogue', sans-serif;
+          font-size: 16px;
+      }
+
+      .imagecontainer {
+          width: 45%;
+          max-width: 500px;
+      }
+
+      .imagecontainer img {
+          width: 100%;
+          height: auto;
+          max-width: 100%;
+      }
+
+      .nocolor {
+          background-color: #fff;
+          padding: 20px 0;
+      }
+
+      .about, .wedo {
+          display: flex;
+          width: 90%;
+          max-width: 1200px;
+          margin: 0 auto 20px;
+          justify-content: space-between;
+          align-items: center;
+      }
+
+      .aboutimage, .wedoimage {
+          width: 45%;
+          max-width: 500px;
+      }
+
+      .aboutimage img, .wedoimage img {
+          width: 100%;
+          height: auto;
+          max-width: 100%;
+      }
+
+      .abouttext, .wedotext {
+          width: 50%;
+          max-width: 500px;
+          text-align: left;
+      }
+
+      .abouttext h1, .wedotext h1 {
+          font-family: 'Epilogue', sans-serif;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 32px;
+          line-height: 120%;
+          color: #294270;
+          margin: 0 0 20px;
+      }
+
+      .abouttext p, .wedotext p {
+          font-family: 'Epilogue', sans-serif;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 120%;
+          color: #3A3A3A;
+          margin: 0 0 20px;
+      }
+
+      .abouttext button, .wedotext button {
+          padding: 10px 20px;
+          border: 1px solid #294270;
+          background-color: transparent;
+          border-radius: 3px;
+          cursor: pointer;
+          font-family: 'Epilogue', sans-serif;
+          font-size: 16px;
+          color: #294270;
+      }
+
+      .wedotext li {
+          list-style: none;
+          display: flex;
+          align-items: center;
+          margin-bottom: 10px;
+          text-align: left;
+      }
+
+      .wedotext img {
+          width: 20px;
+          height: 20px;
+          margin-right: 10px;
+      }
+
+      .booktraining {
+          text-align: center;
+          padding: 20px;
+          background-color: #294270;
+          color: white;
+      }
+
+      .booktraining h3 {
+          font-family: 'Epilogue', sans-serif;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 24px;
+          line-height: 120%;
+          margin: 0 0 20px;
+      }
+
+      .booktraining button {
+          padding: 16px 20px;
+          background-color: #fff;
+          color: #294270;
+          border: none;
+          border-radius: 3px;
+          cursor: pointer;
+          font-family: 'Epilogue', sans-serif;
+          font-size: 16px;
+      }
+
+      .trainingcontainer {
+          width: 90%;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 20px;
+      }
+
+      .softskilled {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+          gap: 20px;
+      }
+
+      .images {
+          text-align: center;
+          background: #FFFFFF;
+          border: 1px solid #BDC4D3;
+          border-radius: 20px;
+          padding: 20px;
+          box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .images img {
+          width: 100%;
+          height: auto;
+          max-width: 100%;
+          margin-bottom: 10px;
+      }
+
+      .images button {
+          padding: 10px 20px;
+          background-color: #294270;
+          color: white;
+          border: none;
+          border-radius: 10px;
+          cursor: pointer;
+          font-family: 'Epilogue', sans-serif;
+          font-size: 16px;
+      }
+
+      .benefits {
+          padding: 20px;
+          background-color: #fff;
+      }
+
+      .benefits h3 {
+          font-family: 'Epilogue', sans-serif;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 24px;
+          line-height: 120%;
+          color: #294270;
+          margin: 0 0 20px;
+      }
+
+      .membercontainer {
+          display: flex;
+          width: 90%;
+          max-width: 1200px;
+          margin: 0 auto;
+          justify-content: space-between;
+          flex-wrap: wrap;
+      }
+
+      .members {
+          width: 22%;
+          max-width: 200px;
+          text-align: center;
+          margin-bottom: 20px;
+      }
+
+      .members .icon img {
+          width: 50px;
+          height: 50px;
+          margin-bottom: 10px;
+      }
+
+      .members p {
+          font-family: 'Epilogue', sans-serif;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 120%;
+          color: #3A3A3A;
+      }
+
+      .latestpublications {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+          gap: 20px;
+          width: 90%;
+          max-width: 1200px;
+          margin: 0 auto 20px;
+      }
+
+      .latestpublications .images {
+          text-align: center;
+          background: #FFFFFF;
+          border: 1px solid #BDC4D3;
+          border-radius: 20px;
+          padding: 20px;
+          box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .latestpublications .images img {
+          width: 100%;
+          height: auto;
+          max-width: 100%;
+          margin-bottom: 10px;
+      }
+
+      .latestpublications .images h4 {
+          font-family: 'Epilogue', sans-serif;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 120%;
+          color: #294270;
+          margin: 10px 0;
+      }
+
+      .latestpublications .images .book {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: 60px;
+      }
+
+      .latestpublications .images .book p {
+          font-family: 'Epilogue', sans-serif;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 120%;
+          color: #3A3A3A;
+          margin: 0;
+      }
+
+      .latestpublications .images .book button {
+          border: none;
+          background-color: transparent;
+          color: #294270;
+          font-family: 'Epilogue', sans-serif;
+          font-size: 16px;
+          cursor: pointer;
+      }
+
+      .latestpublications .images .book button:last-child {
+          background-color: #294270;
+          color: white;
+          border-radius: 10px;
+          padding: 5px 15px;
+      }
+
+      button[style*="border: 1px solid #294270"] {
+          padding: 10px 20px;
+          border-radius: 3px;
+          cursor: pointer;
+          font-family: 'Epilogue', sans-serif;
+          font-size: 16px;
+      }
+
+      .newsletter {
+          display: flex;
+          width: 90%;
+          max-width: 1200px;
+          margin: 0 auto 20px;
+          padding: 16px;
+          background: #FFFFFF;
+          border: 1px solid #BDC4D3;
+          box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+          border-radius: 31.875px;
+          justify-content: space-between;
+          align-items: center;
+      }
+
+      .newsletter .text {
+          width: 50%;
+          text-align: left;
+      }
+
+      .newsletter h2 {
+          font-family: 'Epilogue', sans-serif;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 32px;
+          line-height: 120%;
+          color: #3A3A3A;
+      }
+
+      .newsletter p {
+          font-family: 'Epilogue', sans-serif;
+          font-style: normal;
+          font-weight: 200;
+          font-size: 20px;
+          line-height: 120%;
+          text-align: justify;
+          color: #C2C2C2;
+      }
+
+      .newsletter form {
+          text-align: right;
+      }
+
+      .newsletter input {
+          padding: 10px;
+          border-radius: 10px;
+          outline: none;
+          border: 1px solid #294270;
+          width: 60%;
+          max-width: 200px;
+      }
+
+      .newsletter button {
+          padding: 10px;
+          color: white;
+          background-color: #294270;
+          border-radius: 10.3579px;
+          border: none;
+          cursor: pointer;
+      }
+
+      .Footer {
+          width: 100%;
+          background: #E6EDEF;
+          margin-bottom: 10px;
+          margin-top: 100px;
+      }
+
+      .Footer .logoform {
+          width: 30%;
+      }
+
+      .Footer .logoform img {
+          width: 100%;
+          max-width: 100px;
+          height: auto;
+      }
+
+      .Footer .logoform input {
+          padding: 10px;
+          background: #FEFEFE;
+          border-radius: 30px;
+          border: none;
+          width: 80%;
+          max-width: 200px;
+      }
+
+      .Footer .top {
+          display: flex;
+          width: 100%;
+          padding: 10px;
+          text-align: justify;
+          align-items: center;
+          justify-content: space-between;
+      }
+
+      .Footer .under {
+          width: 100%;
+      }
+
+      .Footer .under img {
+          width: 100%;
+          max-width: 100%;
+      }
+
+      .Footer .container {
+          margin: 0 auto;
+          padding: 10px;
+          text-align: justify;
+          width: 90%;
+          max-width: 1200px;
+      }
+
+      .Footer .Company,
+      .Footer .Products {
+          width: 25%;
+      }
+
+      .Footer .footerbutton {
+          display: flex;
+          flex-direction: column-reverse;
+          width: 15%;
+          padding: 5px;
+      }
+
+      .Footer .footerbutton button {
+          width: 100%;
+          padding: 10px;
+          color: white;
+          background-color: #294270;
+          border: none;
+          margin-bottom: 10%;
+          border-radius: 10px;
+          cursor: pointer;
+      }
+
+      .Footer .footerbutton .white {
+          background-color: #ffffff;
+          color: #294270;
+      }
+
+      .Footer .top h5 {
+          font-family: 'Epilogue', sans-serif;
+          font-style: normal;
+          font-weight: 800;
+          font-size: 20px;
+          line-height: 120%;
+          text-align: justify;
+          color: #294270;
+      }
+
+      .Footer .top h6 {
+          font-family: 'Epilogue', sans-serif;
+          font-style: normal;
+          font-weight: 200;
+          font-size: 16px;
+          line-height: 120%;
+          text-align: justify;
+      }
+
+      @media screen and (max-width: 768px) {
+          nav {
+              flex-wrap: wrap;
+          }
+
+          .menu-toggle {
+              display: flex;
+              z-index: 999;
+          }
+
+          nav .links {
+              display: none;
+              width: 100%;
+              background: #fff;
+              position: absolute;
+              top: 100%;
+              left: 0;
+              padding: 20px;
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+              z-index: 999;
+          }
+
+          nav .links.active {
+              display: block;
+          }
+
+          nav ul {
+              flex-direction: column;
+              width: 100%;
+          }
+
+          nav ul li {
+              margin: 10px 0;
+              text-align: center;
+          }
+
+          nav .button {
+              width: 100%;
+              text-align: center;
+              margin-top: 10px;
+          }
+
+          nav .button button {
+              width: 45%;
+              margin: 5px;
+          }
+
+          nav .logo {
+              width: 20%;
+          }
+
+          .homecontainer {
+              flex-direction: column;
+              width: 95%;
+          }
+
+          .text {
+              width: 100%;
+              max-width: 100%;
+              margin-bottom: 20px;
+          }
+
+          .imagecontainer {
+              width: 100%;
+              max-width: 100%;
+          }
+
+          .about, .wedo {
+              flex-direction: column;
+              width: 95%;
+          }
+
+          .aboutimage, .wedoimage {
+              width: 100%;
+              max-width: 100%;
+              margin-bottom: 20px;
+          }
+
+          .abouttext, .wedotext {
+              width: 100%;
+              max-width: 100%;
+          }
+
+          .softskilled {
+              grid-template-columns: 1fr;
+          }
+
+          .membercontainer {
+              flex-direction: column;
+              width: 95%;
+          }
+
+          .members {
+              width: 100%;
+              max-width: 100%;
+              margin-bottom: 20px;
+          }
+
+          .latestpublications {
+              grid-template-columns: 1fr;
+              width: 95%;
+          }
+
+          .newsletter {
+              flex-direction: column;
+              text-align: center;
+              width: 95%;
+          }
+
+          .newsletter .text {
+              width: 100%;
+          }
+
+          .newsletter input {
+              width: 70%;
+              margin-bottom: 10px;
+          }
+      }
+
+      @media screen and (max-width: 480px) {
+          nav .logo {
+              width: 25%;
+          }
+
+          nav .button {
+              width: 50%;
+          }
+
+          nav .links {
+              width: 100%;
+          }
+
+          .text h1 {
+              font-size: 32px;
+          }
+
+          .text p {
+              font-size: 14px;
+          }
+
+          .abouttext h1, .wedotext h1 {
+              font-size: 24px;
+          }
+
+          .abouttext p, .wedotext p {
+              font-size: 14px;
+          }
+
+          .booktraining h3 {
+              font-size: 20px;
+          }
+
+          .trainingcontainer h1 {
+              font-size: 24px;
+          }
+
+          .images button {
+              font-size: 14px;
+          }
+
+          .benefits h3 {
+              font-size: 20px;
+          }
+
+          .members .icon img {
+              width: 40px;
+              height: 40px;
+          }
+
+          .members p {
+              font-size: 14px;
+          }
+
+          .latestpublications .images h4 {
+              font-size: 16px;
+          }
+
+          .latestpublications .images .book p {
+              font-size: 12px;
+          }
+
+          .newsletter h2 {
+              font-size: 24px;
+          }
+
+          .newsletter p {
+              font-size: 16px;
+          }
+
+          .Footer .top {
+              flex-direction: column;
+          }
+
+          .Footer .logoform,
+          .Footer .Company,
+          .Footer .Products,
+          .Footer .footerbutton {
+              width: 100%;
+              margin-bottom: 20px;
+          }
+
+          .Footer .footerbutton button {
+              margin-bottom: 5%;
+          }
+      }
     </style>
-</head>
-<body>
-    <nav> 
-        <div class="logo">
-            <a href="./index.html">
-                <img src="./aflad.png" alt="AFLAD Logo">
-            </a>
-        </div>  
-        <div class="menu-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <a href="/">
+          <img src="./aflad.png" alt="AFLAD Logo" />
+        </a>
+      </div>
+      <div class="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="links">
+        <ul>
+          <li><a href="./about.html">About Us</a></li>
+          <li><a href="./forum.html">Forum</a></li>
+          <li><a href="./publication.html">Insights</a></li>
+          <li><a href="./events.html">Events</a></li>
+          <li><a href="./trainings.html">Trainings</a></li>
+          <li><a href="./contact.html">Contact Us</a></li>
+        </ul>
+        <div class="button">
+          <button class="white"><a href="./signin.html">Sign in</a></button>
+          <button class="blue"><a href="./signup.html">Sign up</a></button>
         </div>
-        <div class="links">
-            <ul>
-                <li><a href="./about.html">About Us</a></li>
-                <li><a href="./forum.html">Forum</a></li>
-                <li><a href="./publication.html">Insights</a></li>
-                <li><a href="./events.html">Events</a></li>
-                <li><a href="./trainings.html">Trainings</a></li>
-                <li><a href="./contact.html">Contact Us</a></li>
-            </ul>
-            <div class="button">
-                <button class="white"><a href="./signin.html">Sign in</a></button>
-                <button class="blue"><a href="./signup.html">Sign up</a></button>
-            </div>
-        </div>
+      </div>
     </nav>
     <div class="menu-overlay"></div>
     <div class="navline"></div>
     <div class="homecontainer">
-        <div class="text">
-            <h1>
-                Association of Professional 
-                <br>
-                Facilitators 
-                in Learning and Development
-            </h1>
-            <p>
-                A Platform to Equip and Empower Professional
-                <br>
-                Facilitators and Trainers
-            </p>
-            <button style="border-radius: 3px;"><a href="https://docs.google.com/forms/d/e/1FAIpQLSewNvFACWbwKpi4apiezMLD4jq4p07MLw66Xuy_VXQqihU1LA/viewform?usp=pp_url" style="color: white;">Join Us</a></button>
-        </div>
-        <div class="imagecontainer">
-            <img src="./DSC_5324.jpg" alt="">
-        </div>
+      <div class="text">
+        <h1>
+          Association of Professional
+          <br />
+          Facilitators in Learning and Development
+        </h1>
+        <p>
+          A Platform to Equip and Empower Professional
+          <br />
+          Facilitators and Trainers
+        </p>
+        <button style="border-radius: 3px">
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSewNvFACWbwKpi4apiezMLD4jq4p07MLw66Xuy_VXQqihU1LA/viewform?usp=pp_url"
+            style="color: white"
+            >Join Us</a
+          >
+        </button>
+      </div>
+      <div class="imagecontainer">
+        <img src="./DSC_5324.jpg" alt="" />
+      </div>
     </div>
     <div class="nocolor">
-        <div class="about">
-            <div class="aboutimage">
-                <img src="./6d48c392-c5e0-4723-b9a7-7c960ecf722d.jfif" alt="">
-            </div>
-            <div class="abouttext">
-                <h1>About AFLAD</h1>
-                <p>
-                    AFLAD creates a platform for facilitators and trainers with different professional levels to equip and empower each other in their interested discipline  
-                </p>
-                <button style="border: 1px solid #294270; background-color: transparent; border-radius: 3px;">
-                    <a href="./about.html" style="color: #294270;">Read More...</a>
-                </button>
-            </div>
+      <div class="about">
+        <div class="aboutimage">
+          <img src="./6d48c392-c5e0-4723-b9a7-7c960ecf722d.jfif" alt="" />
         </div>
-        <div class="wedo">
-            <div class="wedotext">
-                <h1>What Do We Do</h1>
-                <li>
-                    <img src="./check.png" alt=""><p>We create a space where our members can learn from each other.</p>
-                </li>
-                <li>
-                    <img src="./check.png" alt="">
-                    <p>We provide trainings for our members.</p>
-                </li>
-                <li>
-                    <img src="./check.png" alt="">
-                    <p>We create a space to find mentors to help improve ones career.</p>
-                </li>
-            </div>
-            <div class="wedoimage">
-                <img src="./DSC_5474.jpg" alt="">
-            </div>
+        <div class="abouttext">
+          <h1>About AFLAD</h1>
+          <p>
+            AFLAD creates a platform for facilitators and trainers with
+            different professional levels to equip and empower each other in
+            their interested discipline
+          </p>
+          <button
+            style="
+              border: 1px solid #294270;
+              background-color: transparent;
+              border-radius: 3px;
+            "
+          >
+            <a href="./about.html" style="color: #294270">Read More...</a>
+          </button>
         </div>
-        <div class="booktraining">
-            <h3>Get Trained By the Expert in Your 
-               <br> Discipline </h3>
-            <a href="./trainings.html"><button style="padding: 16px;">Book Training</button></a>
+      </div>
+      <div class="wedo">
+        <div class="wedotext">
+          <h1>What Do We Do</h1>
+          <li>
+            <img src="./check.png" alt="" />
+            <p>
+              We create a space where our members can learn from each other.
+            </p>
+          </li>
+          <li>
+            <img src="./check.png" alt="" />
+            <p>We provide trainings for our members.</p>
+          </li>
+          <li>
+            <img src="./check.png" alt="" />
+            <p>
+              We create a space to find mentors to help improve ones career.
+            </p>
+          </li>
         </div>
-        <div class="trainingcontainer">
-            <h1>Events</h1>
-            <div class="softskilled">
-                <div class="images">
-                    <img src="./currentevent.jpeg" alt="">
-                    <div>
-                        <a href="./register.html"><button>Register</button></a>
-                    </div>
-                </div>
-                <div class="images">
-                    <img src="./events2.jpeg" alt="">
-                    <div>
-                        <a href="./register.html"><button>Register</button></a>
-                    </div>
-                </div>
-                <div class="images">
-                    <img src="./events3.jpeg" alt="">
-                    <div>
-                        <a href="./register.html"><button>Register</button></a>
-                    </div>
-                </div>
-            </div>
+        <div class="wedoimage">
+          <img src="./DSC_5474.jpg" alt="" />
         </div>
-        <div class="benefits">
-            <h3>Member Benefits</h3>
-            <div class="membercontainer">
-                <div class="members">
-                    <div class="icon">
-                        <img src="./Vector (4).png" alt="">
-                    </div>
-                    <p>Practice and learning skills</p>
-                </div>
-                <div class="members">
-                    <div class="icon">
-                        <img src="./handshake.png" alt="">
-                    </div>
-                    <p>Expand your network</p>
-                </div>
-                <div class="members">
-                    <div class="icon">
-                        <img src="./bulb.png" alt="">
-                    </div>
-                    <p>Exchange and gaining Ideas</p>
-                </div>
-                <div class="members">
-                    <div class="icon">
-                        <img src="./handshake.png" alt="">
-                    </div>
-                    <p>Create Opportunities</p>
-                </div>
-            </div>
-        </div>
-
-     
-        <h2>Latest Publications</h2>
-        <div class="latestpublications">
-            <div class="images">
-                <img src="./JuliusAfolabi.png" alt="">
-                <h4>HOW TO TURN A BUSINESS CALL INTO A PROFITABLE BUSINESS TRANSACTION</h4>
-                <div class="book" style="margin-top: 60px;">
-                    <p><small>28 Jan, 2023</small></p>
-                    <button style="border: none; background-color: transparent; color: #294270;">Download</button>
-                    <a href="./blog.html"><button>View</button></a>
-                </div>
-            </div>
-            <div class="images">
-                <img src="./uzoma uduma.png" alt="">
-                <div>
-                    <h4>Business Growth and Effective Communication<br><br></h4>
-                    <div class="book" style="margin-top: 60px;">
-                        <p><small>28 Jan, 2023</small></p>
-                        <button style="border: none; background-color: transparent; color: #294270;">Download</button>
-                        <a href="./blog2.html"><button>View</button></a>
-                    </div>
-                </div>
-            </div>
-            <div class="images">
-                <img src="./DrEsther.png" alt="">
-                <h4>Unleashing Your Potential: Becoming an A-class Training Facilitator</h4>
-                <div class="book" style="margin-top: 60px;">
-                    <p><small>28 Jan, 2023</small></p>
-                    <button style="border: none; background-color: transparent; color: #294270;">Download</button>
-                    <a href="./blog3.html"><button>View</button></a>
-                </div>
-            </div>
-        </div>
-
-        <div>
-            <img src="./proposal.jpg" alt="">
-        </div>
-
-        
-        <a href="./publication.html"><button style="margin: 20px; border: 1px solid #294270; color: #294270; background-color: transparent; border-radius: 3px;">View More Publications..</button></a>
-        <div class="newsletter">
-            <div class="text">
-                <h2>Join our Mailing List</h2>
-                <p>Receive notification for new trainings and publications</p>
-            </div>
+      </div>
+      <div class="booktraining">
+        <h3>
+          Get Trained By the Expert in Your <br />
+          Discipline
+        </h3>
+        <a href="./trainings.html"
+          ><button style="padding: 16px">Book Training</button></a
+        >
+      </div>
+      <div class="trainingcontainer">
+        <h1>Events</h1>
+        <div class="softskilled">
+          <div class="images">
+            <img src="./currentevent.jpeg" alt="" />
             <div>
-                <form action="">
-                    <input type="email" placeholder="Enter your email address">
-                    <button>Join Newsletter</button>
-                </form>
+              <a href="./register.html"><button>Register</button></a>
             </div>
+          </div>
+          <div class="images">
+            <img src="./events2.jpeg" alt="" />
+            <div>
+              <a href="./register.html"><button>Register</button></a>
+            </div>
+          </div>
+          <div class="images">
+            <img src="./events3.jpeg" alt="" />
+            <div>
+              <a href="./register.html"><button>Register</button></a>
+            </div>
+          </div>
         </div>
+      </div>
+      <div class="benefits">
+        <h3>Member Benefits</h3>
+        <div class="membercontainer">
+          <div class="members">
+            <div class="icon">
+              <img src="./Vector (4).png" alt="" />
+            </div>
+            <p>Practice and learning skills</p>
+          </div>
+          <div class="members">
+            <div class="icon">
+              <img src="./handshake.png" alt="" />
+            </div>
+            <p>Expand your network</p>
+          </div>
+          <div class="members">
+            <div class="icon">
+              <img src="./bulb.png" alt="" />
+            </div>
+            <p>Exchange and gaining Ideas</p>
+          </div>
+          <div class="members">
+            <div class="icon">
+              <img src="./handshake.png" alt="" />
+            </div>
+            <p>Create Opportunities</p>
+          </div>
+        </div>
+      </div>
+
+      <h2>Latest Publications</h2>
+      <div class="latestpublications">
+        <div class="images">
+          <img src="./JuliusAfolabi.png" alt="" />
+          <h4>
+            HOW TO TURN A BUSINESS CALL INTO A PROFITABLE BUSINESS TRANSACTION
+          </h4>
+          <div class="book" style="margin-top: 60px">
+            <p><small>28 Jan, 2023</small></p>
+            <button
+              style="
+                border: none;
+                background-color: transparent;
+                color: #294270;
+              "
+            >
+              Download
+            </button>
+            <a href="./blog.html"><button>View</button></a>
+          </div>
+        </div>
+        <div class="images">
+          <img src="./uzoma uduma.png" alt="" />
+          <div>
+            <h4>Business Growth and Effective Communication<br /><br /></h4>
+            <div class="book" style="margin-top: 60px">
+              <p><small>28 Jan, 2023</small></p>
+              <button
+                style="
+                  border: none;
+                  background-color: transparent;
+                  color: #294270;
+                "
+              >
+                Download
+              </button>
+              <a href="./blog2.html"><button>View</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="images">
+          <img src="./DrEsther.png" alt="" />
+          <h4>
+            Unleashing Your Potential: Becoming an A-class Training Facilitator
+          </h4>
+          <div class="book" style="margin-top: 60px">
+            <p><small>28 Jan, 2023</small></p>
+            <button
+              style="
+                border: none;
+                background-color: transparent;
+                color: #294270;
+              "
+            >
+              Download
+            </button>
+            <a href="./blog3.html"><button>View</button></a>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <img src="./proposal.jpg" alt="" />
+      </div>
+
+      <a href="./publication.html"
+        ><button
+          style="
+            margin: 20px;
+            border: 1px solid #294270;
+            color: #294270;
+            background-color: transparent;
+            border-radius: 3px;
+          "
+        >
+          View More Publications..
+        </button></a
+      >
+      <div class="newsletter">
+        <div class="text">
+          <h2>Join our Mailing List</h2>
+          <p>Receive notification for new trainings and publications</p>
+        </div>
+        <div>
+          <form action="">
+            <input type="email" placeholder="Enter your email address" />
+            <button>Join Newsletter</button>
+          </form>
+        </div>
+      </div>
     </div>
     <div class="Footer">
-        <div class="container">
-            <div class="top">
-                <div class="logoform">
-                    <a href="./home.html">
-                        <img src="./aflad.png" alt="">
-                    </a>
-                    <input type="text" placeholder="Placeholder" />
-                </div>
-                <div class="Company">
-                    <h5>Community</h5>
-                    <h6>Publications</h6>
-                    <h6>Forum</h6>
-                    <h6>Groups</h6>
-                </div>
-                <div class="Products">
-                    <h5>Company</h5>
-                    <h6>Home</h6>
-                    <h6>About Us</h6>
-                    <h6>Contact Us</h6>
-                </div>
-                <div class="footerbutton">
-                    <button class="white">Sign up</button>
-                    <button>Sign in</button>
-                </div>
-            </div>
-            <div class="under">
-                <img src="./Rectangle.png" alt="">
-            </div>
+      <div class="container">
+        <div class="top">
+          <div class="logoform">
+            <a href="./home.html">
+              <img src="./aflad.png" alt="" />
+            </a>
+            <input type="text" placeholder="Placeholder" />
+          </div>
+          <div class="Company">
+            <h5>Community</h5>
+            <a href="./publication.html">Publications</a>
+          </div>
+          <div class="Products">
+            <h5>Company</h5>
+            <a href="/">Home</a>
+            <br />
+            <br />
+            <a href="./about.html">About Us</a>
+            <br />
+            <br />
+            <a href="./contact.html">Contact Us</a>
+          </div>
+          <div class="footerbutton">
+            <button class="white">Sign up For Training</button>
+            <button>Sign in For Training</button>
+          </div>
         </div>
+        <div class="under">
+          <img src="./Rectangle.png" alt="" />
+        </div>
+      </div>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navLinks = document.querySelector('.links');
-            const menuOverlay = document.querySelector('.menu-overlay');
-            const navItems = document.querySelectorAll('.links li a');
+      document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.querySelector(".menu-toggle");
+        const navLinks = document.querySelector(".links");
+        const menuOverlay = document.querySelector(".menu-overlay");
+        const navItems = document.querySelectorAll(".links li a");
 
-            function toggleMenu() {
-                menuToggle.classList.toggle('active');
-                navLinks.classList.toggle('active');
-                
-                if (menuOverlay) {
-                    menuOverlay.classList.toggle('active');
-                }
-                
-                if (navLinks.classList.contains('active')) {
-                    document.body.style.overflow = 'hidden';
-                } else {
-                    document.body.style.overflow = '';
-                }
+        function toggleMenu() {
+          menuToggle.classList.toggle("active");
+          navLinks.classList.toggle("active");
+
+          if (menuOverlay) {
+            menuOverlay.classList.toggle("active");
+          }
+
+          if (navLinks.classList.contains("active")) {
+            document.body.style.overflow = "hidden";
+          } else {
+            document.body.style.overflow = "";
+          }
+        }
+
+        if (menuToggle) {
+          menuToggle.addEventListener("click", toggleMenu);
+        }
+
+        if (menuOverlay) {
+          menuOverlay.addEventListener("click", toggleMenu);
+        }
+
+        navItems.forEach((item) => {
+          item.addEventListener("click", () => {
+            if (
+              window.innerWidth <= 768 &&
+              navLinks.classList.contains("active")
+            ) {
+              toggleMenu();
             }
-
-            if (menuToggle) {
-                menuToggle.addEventListener('click', toggleMenu);
-            }
-
-            if (menuOverlay) {
-                menuOverlay.addEventListener('click', toggleMenu);
-            }
-
-            navItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    if (window.innerWidth <= 768 && navLinks.classList.contains('active')) {
-                        toggleMenu();
-                    }
-                });
-            });
-
-            window.addEventListener('resize', function() {
-                if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
-                    menuToggle.classList.remove('active');
-                    navLinks.classList.remove('active');
-                    if (menuOverlay) {
-                        menuOverlay.classList.remove('active');
-                    }
-                    document.body.style.overflow = '';
-                }
-            });
+          });
         });
+
+        window.addEventListener("resize", function () {
+          if (
+            window.innerWidth > 768 &&
+            navLinks.classList.contains("active")
+          ) {
+            menuToggle.classList.remove("active");
+            navLinks.classList.remove("active");
+            if (menuOverlay) {
+              menuOverlay.classList.remove("active");
+            }
+            document.body.style.overflow = "";
+          }
+        });
+      });
     </script>
-</body>
+  </body>
 </html>
