@@ -72,6 +72,14 @@ nav button {
   cursor: pointer;
 }
 
+nav button > a {
+  color: white !important;
+}
+
+.link-button {
+  color: white !important;
+}
+
 nav ul {
   list-style: none;
   display: flex;
